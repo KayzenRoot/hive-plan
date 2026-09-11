@@ -44,6 +44,7 @@ Active planning branch: `docs/hp-plan-006-event-auto-review`
 - FindingGate noise suppression: actionable evidence-grounded defects only; unrelated/style noise is excluded unless policy requires it.
 - Delta-first correction review with impacted regression coverage preserved.
 - Adapter-based static analysis portfolio with SARIF-compatible finding normalization and benchmark-gated tools.
+- Incisive Review/Correction Prompt Compiler with per-agent scope, evidence obligations, task-dependency graph, no unrelated refactors and explicit STOP CONDITION.
 
 ## Completed planning increments
 - `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
@@ -61,6 +62,7 @@ Active planning branch: `docs/hp-plan-006-event-auto-review`
 - `docs/45-uads-review-agent-plan.md` — conditional UADS specialist review/prompt plan.
 - `docs/46-review-engine-evals.md` — focused review/multi-agent/impact/noise regression gates.
 - `docs/47-review-technology-matrix.md` — benchmark-gated static/test/review technology portfolio.
+- `docs/48-review-prompt-compiler.md` — incisive review/correction prompt and UADS task-graph compiler.
 - Decisions Ledger D-024 and D-025.
 - Issue #12.
 
