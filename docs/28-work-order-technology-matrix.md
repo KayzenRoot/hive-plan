@@ -1,6 +1,6 @@
 # Work Order Compiler Technology Adoption Matrix
 
-Status: PROPOSED — HP-PLAN-004
+Status: FROZEN POLICY — HP-PLAN-004
 
 ## Rule
 No technology is adopted because it is fashionable. It must improve a measured Hive Plan objective and remain replaceable behind an interface where practical.
@@ -112,3 +112,6 @@ Metrics:
 
 ## Selection principle
 Prefer the simplest stack that meets the quality/performance gates. Advanced indexing is enabled where measured workload justifies it rather than becoming mandatory complexity for every project.
+
+## Freeze boundary
+The adoption policy, provider abstractions, benchmark gates and statuses above are frozen. Exact backend promotion thresholds remain empirical configuration determined by benchmarks and may change without altering core workflow semantics.
