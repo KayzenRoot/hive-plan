@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hive-plan.local/contracts/v1/evidence-bundle.schema.json",
+  "title": "Hive Plan Evidence Bundle v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "artifact_id", "artifact_digest", "project_id", "increment_id", "work_order", "context_lock", "repository", "base_sha", "head_sha", "changed_files", "checks", "findings", "evidence_root", "created_at", "producer"],
+  "properties": {
+    "artifact_type": {"const": "evidence_bundle"},
+    "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
+    "artifact_id": {"$ref": "common.schema.json#/$defs/artifactId"},
+    "artifact_digest": {"$ref": "common.schema.json#/$defs/digest"},
+    "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
+    "increment_id": {"$ref": "common.schema.json#/$defs/incrementId"},
+    "work_order": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "context_lock": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "completion_manifest": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "repository": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "pull_request_number": {"type": ["integer", "null"], "minimum": 1},
+    "base_sha": {"$ref": "common.schema.json#/$defs/gitSha"},
+    "head_sha": {"$ref": "common.schema.json#/$defs/gitSha"},
+    "changed_files": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 500}, "uniqueItems": true},
+    "checks": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/checkResult"}},
+    "findings": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/finding"}},
+    "artifacts": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/artifactRef"}},
+    "acceptance_criteria_results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "status", "evidence"],
+        "properties": {
+          "id": {"type": "string", "minLength": 1, "maxLength": 100},
+          "status": {"type": "string", "enum": ["PASS", "FAIL", "UNKNOWN"]},
+          "evidence": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 1000}}
+        }
+      }
+    },
+    "unresolved_risks": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 2000}},
+    "evidence_root": {"$ref": "common.schema.json#/$defs/digest"},
+    "created_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "producer": {"$ref": "common.schema.json#/$defs/producer"},
+    "extensions": {"$ref": "common.schema.json#/$defs/extensions"}
+  }
+}
