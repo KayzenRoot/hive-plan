@@ -44,6 +44,7 @@ Active planning branch: `docs/hp-plan-003-artifact-contracts`
 - `contracts/v1/evidence-bundle.schema.json`
 - `contracts/v1/review-receipt.schema.json`
 - `contracts/v1/correction-delta.schema.json`
+- `contracts/v1/checkpoint-delta.schema.json`
 
 ## Proposed technical direction under discussion
 - JSON as canonical contract representation.
@@ -51,6 +52,7 @@ Active planning branch: `docs/hp-plan-003-artifact-contracts`
 - JCS-compatible canonicalization + SHA-256 canonical artifact/context/evidence digests.
 - Review Receipt bound to exact Git head SHA + context root + evidence root.
 - Completion Manifest remains a trigger/claim, never proof.
+- Checkpoint Delta is first-class so canonical promotion is structured rather than prose-only.
 - Unknown core fields rejected; provider/executor fields namespaced under extensions.
 - Contract version compatibility explicitly governed; unsupported major versions BLOCK.
 - Large/sensitive evidence referenced by location + digest rather than embedded by default.
@@ -58,7 +60,6 @@ Active planning branch: `docs/hp-plan-003-artifact-contracts`
 ## Open planning decisions
 - Final HP-PLAN-003 contract field semantics and freeze.
 - Exact digest self-field convention and frozen byte-level test vectors.
-- Whether a separate Checkpoint Delta schema is required in V1.
 - Exact UADS/Hades V1 integration contract and current compatible version.
 - Data/persistence/vector-store benchmark decision.
 - Initial model-provider/profile matrix and routing thresholds.
@@ -73,4 +74,4 @@ None for continued planning.
 NOT GRANTED. Production code remains blocked until the planning freeze audit authorizes the first implementation Work Order.
 
 ## Next necessary discussion
-Review the HP-PLAN-003 contract architecture, especially artifact identity, digest/fingerprint semantics, Review Receipt invalidation, and whether Checkpoint Delta deserves its own first-class schema before freeze.
+Review and freeze the HP-PLAN-003 contract architecture, especially canonical JSON/schema versioning, digest/fingerprint semantics, Review Receipt invalidation and Checkpoint Delta promotion behavior.
