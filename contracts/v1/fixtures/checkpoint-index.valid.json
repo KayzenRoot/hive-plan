@@ -1,0 +1,34 @@
+{
+  "artifact_type": "checkpoint_index",
+  "schema_version": "1.0.0",
+  "project_id": "hive-plan",
+  "repository": "KayzenRoot/hive-plan",
+  "active_workstream_id": "planning/hp-plan-010",
+  "workstreams": [
+    {
+      "workstream_id": "planning/hp-plan-010",
+      "kind": "PLANNING",
+      "issue_id": 23,
+      "work_order_id": null,
+      "branch": "docs/hp-plan-010-engineering-chat-project-brain",
+      "latest_checkpoint_id": "HP-CP-PLAN-010-001",
+      "latest_checkpoint_path": "checkpoints/history/HP-CP-PLAN-010-001.json",
+      "status": "ACTIVE",
+      "priority": 90,
+      "updated_at": "2026-09-11T19:16:00Z"
+    },
+    {
+      "workstream_id": "implementation/hp-wo-0001",
+      "kind": "IMPLEMENTATION",
+      "issue_id": 21,
+      "work_order_id": "HP-WO-0001",
+      "branch": "feat/hp-wo-0001-cockpit-foundation",
+      "latest_checkpoint_id": "HP-CP-WO-0001-001",
+      "latest_checkpoint_path": "checkpoints/history/HP-CP-WO-0001-001.json",
+      "status": "ACTIVE",
+      "priority": 80,
+      "updated_at": "2026-09-11T19:16:00Z"
+    }
+  ],
+  "updated_at": "2026-09-11T19:16:00Z"
+}
