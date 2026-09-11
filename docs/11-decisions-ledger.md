@@ -86,6 +86,14 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 **Decision:** Work Order generation is a deterministic-first, multi-pass compiler rather than prose generation. The frozen architecture includes canonical source resolution, incremental content-addressed repository indexing, exact/lexical/AST/symbol/dependency/semantic retrieval, ChangeGraph impact prediction, FailureShield negative-knowledge preflight, TestLens proof planning, risk-adaptive ContextCapsules, WO-IR, ExecutorFit rendering and CompileGuard. Specific third-party search/parser/embedding/reranking backends remain replaceable behind provider interfaces and are promoted only by benchmark/eval evidence. Compiler quality is governed by downstream verified outcomes such as first-pass success, correction rounds, context cost, defects and total idea-to-verified-merge time.  
 **Status:** FROZEN.
 
+## D-022 — QualityFloor and verified-outcome routing
+**Decision:** Model routing uses provider-neutral tiers T0 DETERMINISTIC, T1 FAST_CHEAP, T2 BALANCED, T3 STRONG and T4 HIGH_ASSURANCE. Hard quality/capability/privacy/health eligibility is applied before price or latency optimization. The router optimizes expected Verified Outcome Cost rather than single-call API price, including measured Rework Tax, retry/latency/defect/human-intervention cost. HIGH_ASSURANCE cannot silently degrade; if no eligible route exists the workflow blocks. Temporary degradation where explicitly permitted creates traceable Quality Debt. Model self-confidence never upgrades assurance; acceptance/escalation is evidence-driven.  
+**Status:** FROZEN.
+
+## D-023 — Provider-neutral Model Router and CacheFabric
+**Decision:** Hive Plan uses a provider-neutral ModelMesh with RouteGuard, QualityFloor, CacheFabric, BudgetPilot, ProviderSentinel and RouteLab. Cache layers are fingerprint-bound and cannot acquire more authority than their source. Provider prompt/context caches are exploited through adapters while domain semantics remain vendor-independent. Failover is capability/privacy/assurance aware; incompatible fallbacks block instead of silently degrading. Routing/cache policies are promoted only through quality, stale-cache, failure and Verified Outcome Cost evals.  
+**Status:** FROZEN.
+
 ## Open decisions
 - Exact framework/runtime stack.
 - Exact vector store/database strategy after benchmark.
@@ -96,3 +104,4 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 - Exact numeric thresholds/weights used by Planning Confidence and question-priority scoring after evals.
 - Byte-level digest golden vectors and validator runtime selection at implementation time.
 - Exact Work Order compiler backend thresholds, retrieval fusion/reranker and local embedding profiles after benchmark.
+- Exact ModelMesh tier assignments, routing weights/budgets and safe-result cache eligibility after evals/current-provider refresh.
