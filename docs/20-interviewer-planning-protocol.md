@@ -1,6 +1,6 @@
 # Interviewer + Planning Protocol
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-001
+Status: FROZEN — HP-PLAN-001
 
 ## Purpose
 The Interviewer is the discovery lead for Hive Plan. Its job is not to ask many questions; its job is to reduce uncertainty, expose contradictions, surface hidden requirements, and prepare evidence-backed planning decisions with the least unnecessary interaction and LLM spend.
