@@ -42,6 +42,30 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 **Decision:** V1 provides a dark, highly technological command cockpit with real-time/near-real-time project, agent, GitHub, review, health, token/cost, and progress telemetry. Frontend vertical slice is prioritized early in implementation.  
 **Status:** FROZEN.
 
+## D-011 — Context-first interviewing
+**Decision:** The Interviewer must inspect canonical/project/tool context before asking questions and must not repeat deterministically known or already approved facts. Question rounds are adaptive and short, prioritized by decision impact, uncertainty, irreversibility, risk, and dependency reach.  
+**Status:** FROZEN.
+
+## D-012 — Planning confidence and explicit assumptions
+**Decision:** Hive Plan maintains a domain Planning Confidence Map backed by evidence/unknowns plus an explicit Assumption Register. Model self-confidence alone is never accepted as planning evidence; critical assumptions must be resolved before freeze.  
+**Status:** FROZEN.
+
+## D-013 — Decision pressure testing
+**Decision:** Consequential decisions undergo pressure testing for failure modes, alternatives, reversibility, scale, dependency loss, adversarial input, data recovery, observability, security boundaries, and simpler alternatives. Elevated/high-assurance decisions require independent critique.  
+**Status:** FROZEN.
+
+## D-014 — Discovery stop condition
+**Decision:** Discovery stops when the current decision/increment is sufficiently specified: no unresolved critical unknowns, high-risk unknowns are resolved or explicitly mitigated, blocking contradictions are cleared, required specialists have responded, success criteria are testable, and remaining unknowns are documented as non-blocking.  
+**Status:** FROZEN.
+
+## D-015 — Agent authority model
+**Decision:** Agents have governed authority levels (observe, propose, review, authorize under policy, operator). Material canonical changes cannot be silently promoted by one agent. Scope expansion, destructive/irreversible operations, policy exceptions, and contested high-impact decisions require operator authority.  
+**Status:** FROZEN.
+
+## D-016 — Innovation governance
+**Decision:** Innovation Scout suggestions are always classified NECESSARY, IMPORTANT, FUTURE, or OUT OF SCOPE and include benefit, maturity, implementation/operational cost, risk, lock-in, reversibility, evidence, and an ADOPT/TRIAL/WATCH/REJECT recommendation. Suggestions never silently expand active scope.  
+**Status:** FROZEN.
+
 ## Open decisions
 - Exact framework/runtime stack.
 - Exact vector store/database strategy after benchmark.
@@ -49,3 +73,4 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 - Initial LLM providers/models and routing thresholds.
 - Event observation strategy mix (polling vs optional local tunnel/webhook).
 - Exact design tokens/brand accent system.
+- Exact numeric thresholds/weights used by Planning Confidence and question-priority scoring after evals.
