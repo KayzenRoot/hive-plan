@@ -1,0 +1,8 @@
+{
+  "checkpoint_id":"HP-CP-WO-0001-OBS-001",
+  "checkpoint_digest":"sha256:039ed91dac2288d9548bce9e2087804d8c961202c176a37e1c6bec7cc0649ce0",
+  "checkpoint_path":"checkpoints/history/HP-CP-WO-0001-OBS-001.json",
+  "workstream_id":"implementation/hp-wo-0001",
+  "project_id":"hive-plan",
+  "updated_at":"2026-09-11T19:16:00Z"
+}
