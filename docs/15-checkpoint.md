@@ -1,6 +1,6 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0008  
+Checkpoint ID: HP-CP-0009  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
 Last canonical planning merge: `b5be6c0faf188b718fe2e8223f5afc34896143f0` (`HP-PLAN-002`)  
@@ -17,61 +17,44 @@ Active planning branch: `docs/hp-plan-003-artifact-contracts`
 - Professional specialized agent organization.
 - Automatic completion-triggered review with independent evidence verification.
 - Dark technological command cockpit and early frontend vertical slice.
-- Canonical Source Pack foundation.
-- Context-first adaptive interviewing, specialist escalation, Assumption Register, Planning Confidence Map and Decision Pressure Test.
-- Governed agent authority levels and explicit discovery Stop Condition.
-- Innovation governance without silent scope expansion.
-- Operational learning memory with provenance, authority, successful patterns and failure/negative knowledge.
-- Stable increment identity and prior-failure retrieval before Work Order finalization.
-- Layered deterministic-first review, correction-in-place and verified-throughput optimization.
-- Professional GitHub lifecycle: short-lived branches, governed planning/implementation PRs, freeze semantics, SemVer, immutable release tags, evidence-based patches, SHA promotion, health signals and publication safeguards.
+- Context-first interviewing, specialist escalation, Assumption Register, Planning Confidence Map and Decision Pressure Test.
+- Agent authority levels, discovery Stop Condition and governed innovation lane.
+- Operational learning memory with successful patterns plus failure/negative knowledge and provenance.
+- Stable increment identity, short-lived GitHub branches, governed PRs, SemVer/release lifecycle and SHA-based canonical promotion.
+- Verified-throughput objective, deterministic-first review and correction-in-place.
+- Versioned machine-readable artifact contracts using canonical JSON + JSON Schema 2020-12.
+- JCS-compatible canonicalization + SHA-256 artifact/context/evidence fingerprints.
+- Review Receipt bound to exact head SHA + context root + evidence root.
+- Completion Manifest as claim/trigger only; independently assembled Evidence Bundle as proof surface.
+- Structured Correction Delta and Checkpoint Delta contracts.
+- Unsupported major schema versions BLOCK rather than being guessed.
 
 ## Completed planning increments
 - `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
 - `HP-PLAN-002` — planning/delivery lifecycle, operational learning memory and GitHub governance; audited and squash-merged through PR #5.
+- `HP-PLAN-003` — machine-readable artifact contracts; specification frozen and awaiting PR audit/merge.
 
-## Active planning increment
-`HP-PLAN-003` — versioned machine-readable artifact contracts.
-
-### Proposed HP-PLAN-003 artifacts
-- `docs/25-artifact-contracts.md`
-- `docs/26-contract-validation-test-plan.md`
-- `contracts/v1/common.schema.json`
-- `contracts/v1/project-manifest.schema.json`
-- `contracts/v1/context-lock.schema.json`
-- `contracts/v1/work-order.schema.json`
-- `contracts/v1/completion-manifest.schema.json`
-- `contracts/v1/evidence-bundle.schema.json`
-- `contracts/v1/review-receipt.schema.json`
-- `contracts/v1/correction-delta.schema.json`
-- `contracts/v1/checkpoint-delta.schema.json`
-
-## Proposed technical direction under discussion
-- JSON as canonical contract representation.
-- JSON Schema Draft 2020-12 deterministic validation.
-- JCS-compatible canonicalization + SHA-256 canonical artifact/context/evidence digests.
-- Review Receipt bound to exact Git head SHA + context root + evidence root.
-- Completion Manifest remains a trigger/claim, never proof.
-- Checkpoint Delta is first-class so canonical promotion is structured rather than prose-only.
-- Unknown core fields rejected; provider/executor fields namespaced under extensions.
-- Contract version compatibility explicitly governed; unsupported major versions BLOCK.
-- Large/sensitive evidence referenced by location + digest rather than embedded by default.
+## HP-PLAN-003 artifacts
+- `docs/25-artifact-contracts.md` — frozen.
+- `docs/26-contract-validation-test-plan.md` — frozen.
+- `contracts/v1/*.schema.json` — Project Manifest, Context Lock, Work Order, Completion Manifest, Evidence Bundle, Review Receipt, Correction Delta and Checkpoint Delta.
+- Decisions Ledger D-020.
 
 ## Open planning decisions
-- Final HP-PLAN-003 contract field semantics and freeze.
-- Exact digest self-field convention and frozen byte-level test vectors.
-- Exact UADS/Hades V1 integration contract and current compatible version.
+- Work Order Compiler/context optimization architecture.
+- Exact UADS/Hades V1 integration contract and compatible version.
 - Data/persistence/vector-store benchmark decision.
 - Initial model-provider/profile matrix and routing thresholds.
 - Technology stack ADR.
 - Detailed cockpit design system and interaction model.
 - Numeric Planning Confidence/question-priority thresholds after evals.
+- Byte-level digest golden vectors and validator runtime selection at implementation time.
 
 ## Blockers
-None for continued planning.
+None for continued planning after HP-PLAN-003 audit.
 
 ## Implementation authorization
 NOT GRANTED. Production code remains blocked until the planning freeze audit authorizes the first implementation Work Order.
 
-## Next necessary discussion
-Review and freeze the HP-PLAN-003 contract architecture, especially canonical JSON/schema versioning, digest/fingerprint semantics, Review Receipt invalidation and Checkpoint Delta promotion behavior.
+## Proposed next planning increment
+Define and freeze the Work Order Compiler and Context Optimization Engine: repository indexing, text/AST/symbol/dependency retrieval, RAG fusion, negative-knowledge preflight, change-surface prediction, test-impact mapping, context budgeting, provider prompt-cache layout, executor capability profiles and compile-time quality gates.
