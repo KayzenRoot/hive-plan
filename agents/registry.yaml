@@ -1,0 +1,44 @@
+schema_version: "1.0"
+source_of_charters: docs/69-v1-agent-charters.md
+common_contract: docs/66-agent-operating-system.md
+skill_policy: docs/67-skill-fabric.md
+research_policy: docs/68-research-and-open-source-intelligence.md
+agents:
+  - {id: A-001, slug: planning-council-lead, title: "Planning Council Lead / Engineering Director", authority: A2, quality_floor: STRONG, research: delegated, mutating: false}
+  - {id: A-002, slug: interviewer-discovery-lead, title: "Interviewer / Discovery Lead", authority: A1, quality_floor: BALANCED, research: allowed, mutating: false}
+  - {id: A-003, slug: product-planner, title: "Product Planner", authority: A1, quality_floor: BALANCED, research: allowed, mutating: false}
+  - {id: A-004, slug: requirements-engineer, title: "Requirements Engineer", authority: A1, quality_floor: BALANCED, research: limited, mutating: false}
+  - {id: A-005, slug: principal-software-architect, title: "Principal Software Architect", authority: A2, quality_floor: STRONG, research: allowed, mutating: false}
+  - {id: A-006, slug: research-oss-intelligence, title: "Research & OSS Intelligence Agent", authority: A1, quality_floor: BALANCED, research: primary, mutating: false}
+  - {id: A-007, slug: innovation-technology-scout, title: "Innovation / Technology Scout", authority: A1, quality_floor: BALANCED, research: primary, mutating: false}
+  - {id: A-008, slug: skill-engineer-curator, title: "Skill Engineer / Skill Curator", authority: A2, quality_floor: BALANCED, research: allowed, mutating: candidate-skills-only}
+  - {id: A-009, slug: documentation-engineer, title: "Documentation Engineer / Technical Writer", authority: A1, quality_floor: FAST_CHEAP, research: limited, mutating: docs-only}
+  - {id: A-010, slug: senior-backend-engineer, title: "Senior Backend Engineer", authority: A2, quality_floor: BALANCED, research: allowed, mutating: task-scoped}
+  - {id: A-011, slug: senior-api-integration-engineer, title: "Senior API & Integration Engineer", authority: A2, quality_floor: BALANCED, research: allowed, mutating: task-scoped}
+  - {id: A-012, slug: senior-data-dba, title: "Senior Data Engineer / DBA", authority: A2, quality_floor: STRONG, research: allowed, mutating: task-scoped}
+  - {id: A-013, slug: senior-frontend-ui-engineer, title: "Senior Frontend / UI Engineer", authority: A2, quality_floor: BALANCED, research: allowed, mutating: task-scoped}
+  - {id: A-014, slug: principal-ux-product-design, title: "Principal UX / Product Design Engineer", authority: A2, quality_floor: BALANCED, research: allowed, mutating: design-artifacts}
+  - {id: A-015, slug: senior-platform-infrastructure, title: "Senior Platform / Infrastructure Engineer", authority: A2, quality_floor: STRONG, research: allowed, mutating: task-scoped}
+  - {id: A-016, slug: senior-devops-release, title: "Senior DevOps / Release Engineer", authority: A2, quality_floor: STRONG, research: allowed, mutating: task-scoped}
+  - {id: A-017, slug: principal-security-engineer, title: "Principal Security Engineer", authority: A3, quality_floor: HIGH_ASSURANCE, research: primary, mutating: controlled}
+  - {id: A-018, slug: privacy-compliance-engineer, title: "Privacy / Compliance Engineer", authority: A2, quality_floor: STRONG, research: allowed, mutating: false}
+  - {id: A-019, slug: reliability-resilience-engineer, title: "Reliability / Resilience Engineer", authority: A2, quality_floor: STRONG, research: allowed, mutating: task-scoped}
+  - {id: A-020, slug: performance-engineer, title: "Performance Engineer", authority: A2, quality_floor: BALANCED, research: allowed, mutating: task-scoped}
+  - {id: A-021, slug: observability-sre-telemetry, title: "Observability / SRE Telemetry Engineer", authority: A2, quality_floor: BALANCED, research: allowed, mutating: task-scoped}
+  - {id: A-022, slug: principal-qa-test-engineer, title: "Principal QA / Test Engineer", authority: A2, quality_floor: STRONG, research: limited, mutating: tests-only-or-task-scoped}
+  - {id: A-023, slug: migration-recovery-engineer, title: "Migration / Recovery Engineer", authority: A3, quality_floor: HIGH_ASSURANCE, research: allowed, mutating: controlled}
+  - {id: A-024, slug: github-steward, title: "GitHub Steward", authority: A3, quality_floor: DETERMINISTIC, research: limited, mutating: github-governed}
+  - {id: A-025, slug: work-order-compiler-lead, title: "Work Order Compiler Lead", authority: A2, quality_floor: STRONG, research: limited, mutating: workflow-artifacts}
+  - {id: A-026, slug: uads-agent-execution-coordinator, title: "UADS Agent Execution Coordinator", authority: A2, quality_floor: STRONG, research: limited, mutating: taskgraph-only}
+  - {id: A-027, slug: senior-review-lead, title: "Senior Review Lead", authority: A2, quality_floor: STRONG, research: allowed, mutating: review-artifacts}
+  - {id: A-028, slug: independent-auditor-red-team, title: "Independent Auditor / Red-Team Reviewer", authority: A3, quality_floor: HIGH_ASSURANCE, research: allowed, mutating: audit-artifacts}
+  - {id: A-029, slug: checkpoint-continuity-agent, title: "Checkpoint / Continuity Agent", authority: A2, quality_floor: BALANCED, research: none, mutating: checkpoint-deltas}
+  - {id: A-030, slug: finops-llm-cost-engineer, title: "FinOps / LLM Cost Engineer", authority: A2, quality_floor: BALANCED, research: primary, mutating: policy-proposals}
+
+rules:
+  model_names_are_not_canonical: true
+  capability_and_quality_floor_drive_routing: true
+  canonical_change_requires_governed_promotion: true
+  external_research_is_untrusted_data: true
+  skill_creation_requires_skillforge: true
+  hidden_chain_of_thought_is_not_agent_bus_content: true
