@@ -94,14 +94,23 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 **Decision:** Hive Plan uses a provider-neutral ModelMesh with RouteGuard, QualityFloor, CacheFabric, BudgetPilot, ProviderSentinel and RouteLab. Cache layers are fingerprint-bound and cannot acquire more authority than their source. Provider prompt/context caches are exploited through adapters while domain semantics remain vendor-independent. Failover is capability/privacy/assurance aware; incompatible fallbacks block instead of silently degrading. Routing/cache policies are promoted only through quality, stale-cache, failure and Verified Outcome Cost evals.  
 **Status:** FROZEN.
 
+## D-024 — Event Spine and immutable auto-review snapshots
+**Decision:** Local V1 observes GitHub through efficient authenticated conditional polling by default, with optional webhook/tunnel adapters feeding the same normalized durable EventSpine. Event processing is at-least-once with deterministic deduplication, idempotent handlers, ReviewLease and EffectLedger for exactly-once-effect behavior where practical. Auto-review eligibility requires complete evidence; reviews are pinned to exact base/head SHA, context root and evidence root through SnapshotGuard/ReviewMVCC and are cancelled as stale when those identities change. Completion claims are signals only, never evidence.  
+**Status:** FROZEN.
+
+## D-025 — Focused senior review, Feature Impact Graph and conditional UADS specialists
+**Decision:** Review scope is the actual diff plus its risk-governed semantic impact closure, not the whole repository. Hive Plan maintains a provenance-backed Feature Impact Graph mapping features/requirements to files, symbols, contracts, data, tests, runtime components and historical failures, updated from predicted and verified outcomes. Deterministic tools run first; UADS specialist agents are conditionally spawned with non-overlapping scope only for affected risk domains; a STRONG Senior Review Lead adjudicates normalized evidence-grounded findings. Review comments without actionable failure conditions/evidence are suppressed, and correction reviews are delta-first while preserving impacted regression coverage.  
+**Status:** FROZEN.
+
 ## Open decisions
 - Exact framework/runtime stack.
 - Exact vector store/database strategy after benchmark.
-- Exact UADS/Hades V1 integration contract/version.
+- Exact UADS/Hades V1 integration invocation/version details.
 - Initial LLM providers/models and routing thresholds.
-- Event observation strategy mix (polling vs optional local tunnel/webhook).
+- Exact polling cadence, persistence/queue backend and optional webhook/tunnel implementation after benchmark.
 - Exact design tokens/brand accent system.
 - Exact numeric thresholds/weights used by Planning Confidence and question-priority scoring after evals.
 - Byte-level digest golden vectors and validator runtime selection at implementation time.
 - Exact Work Order compiler backend thresholds, retrieval fusion/reranker and local embedding profiles after benchmark.
 - Exact ModelMesh tier assignments, routing weights/budgets and safe-result cache eligibility after evals/current-provider refresh.
+- Exact review impact-expansion thresholds, static-analysis portfolio and UADS model-per-agent assignments after review evals.
