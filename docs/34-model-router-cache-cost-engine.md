@@ -1,9 +1,11 @@
 # Model Router + Cache/Cost Engine
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-005
+Status: FROZEN — HP-PLAN-005
 
 ## Mission
 Select the cheapest/fastest execution path that still satisfies the task's quality, risk, privacy and assurance requirements. Cost optimization is subordinate to correctness and review safety.
+
+Quality/assurance tier semantics and Verified Outcome Cost rules are frozen in `docs/35-quality-floor-routing-policy.md`. Routing/cache regression gates are frozen in `docs/36-routing-cache-evals.md`.
 
 ## Internal components
 
@@ -29,13 +31,16 @@ Layers:
 7. optional response cache only for deterministic, state-fingerprinted, policy-approved tasks.
 
 ### BudgetPilot
-Applies per-task/project budgets for tokens, money, latency and retry count. Budgets guide routing but never authorize violating QualityFloor.
+Applies per-task/project budgets for tokens, money, latency and retry count. Budgets guide routing but never authorize violating QualityFloor. It SHOULD reserve bounded escalation budget where cheap-first routing is allowed.
 
 ### ProviderSentinel
 Tracks provider/model health, rate limits, timeouts, error rates, cache hit behavior and latency. Supports circuit breakers, backoff and failover to compatible routes.
 
 ### RouteLab
 Shadow-routing/eval subsystem. Alternative model/cache strategies can be evaluated without silently changing production routing. Expensive shadow calls are sampled rather than duplicated by default.
+
+### CacheValuePredictor
+Estimates whether a provider/local cache write is likely to repay its creation/storage cost from expected reuse, TTL, prefix size and route frequency. It is advisory until validated by evals.
 
 ## Routing flow
 ```text
@@ -44,26 +49,26 @@ TASK / AGENT REQUEST
 CAN THIS BE DETERMINISTIC?
       ├─ YES → LOCAL TOOL / CACHE
       ↓ NO
-ROUTEGUARD CLASSIFICATION
+ROUTEGUARD → ASSURANCE PACKET
       ↓
-QUALITY FLOOR + PRIVACY POLICY
+QUALITY FLOOR + PRIVACY + CAPABILITY GATE
       ↓
 CACHEFABRIC LOOKUP
       ├─ SAFE HIT → VALIDATE FINGERPRINTS → RETURN
       ↓ MISS
-MODEL MESH CANDIDATES
+MODEL MESH ELIGIBLE CANDIDATES
       ↓
-COST/LATENCY/QUALITY SCORE
+VERIFIED OUTCOME COST RANKING
       ↓
 SELECT ROUTE
       ↓
 PROVIDER CACHE-FRIENDLY REQUEST
       ↓
-OUTPUT VALIDATION
+OUTPUT / SOURCE / SCHEMA VALIDATION
       ↓
 ESCALATE / ACCEPT / BLOCK
       ↓
-TELEMETRY + LEARNING
+TELEMETRY + OUTCOME LEARNING
 ```
 
 ## Routing dimensions
@@ -79,7 +84,7 @@ At minimum:
 - privacy/data policy;
 - current provider/model health;
 - observed project-specific quality;
-- marginal cost.
+- marginal cost and expected Rework Tax.
 
 ## Draft/critic pattern
 For selected consequential tasks, separate generation authority from decision authority:
@@ -88,7 +93,7 @@ For selected consequential tasks, separate generation authority from decision au
 - deterministic evidence remains primary;
 - no model self-assertion upgrades assurance.
 
-This avoids paying frontier-model cost for every token while preserving strong review on high-impact decisions.
+This avoids paying strong-model cost for every token while preserving strong review on high-impact decisions.
 
 ## Cache architecture
 
@@ -100,7 +105,8 @@ Every reusable cache entry includes dependencies such as:
 - policy version;
 - prompt/template version;
 - model/provider profile where output depends on it;
-- tool/schema version.
+- tool/schema version;
+- privacy class where relevant.
 
 A changed critical dependency invalidates the entry deterministically.
 
@@ -109,6 +115,8 @@ A changed critical dependency invalidates the entry deterministically.
 - SEMANTIC_SAFE: retrieval/rerank result reusable with strict source/query/profile fingerprints.
 - ADVISORY: reusable only as input/context, never as canonical answer.
 - NO_CACHE: security-sensitive, highly dynamic, non-idempotent or policy-prohibited tasks.
+
+A cached result can never acquire more authority than the original result. Canonical decisions and final review verdicts still require their governed artifacts/fingerprints.
 
 ### Provider prompt-cache layout
 Keep stable reusable content before dynamic task content when provider semantics reward prefix reuse.
@@ -134,31 +142,35 @@ TASK-DYNAMIC
 
 Provider-specific breakpoints/keys are adapter behavior, not domain semantics.
 
-## Current provider capability observations
-As of planning date, OpenAI GPT-5.6+ exposes prompt-cache keys/options, implicit caching plus up to four explicit breakpoints per request, and a current default/minimum TTL of 30 minutes. Gemini 2.5+ provides implicit context caching by default and also supports explicit cached content in generateContent. Hive Plan must detect provider capabilities instead of assuming one universal caching API.
+## Provider capabilities
+Current provider-specific observations are tracked separately in `docs/37-provider-capability-live-notes.md` because model IDs, cache APIs, TTLs and prices are living configuration rather than frozen architecture.
 
 ## Cost control
 Track actual rather than estimated cost whenever provider usage metadata permits:
 - uncached input;
 - cached input;
-- cache writes where separately billed;
+- cache writes/storage where separately billed;
 - output/reasoning tokens;
 - tool calls;
 - retries/failovers;
 - total cost per task/increment/project;
-- cost per verified merge.
+- cost per verified merge;
+- Rework Tax / Verified Outcome Cost.
 
 Cost optimization priorities:
 1. eliminate unnecessary LLM calls;
 2. reduce irrelevant context;
 3. maximize safe local/cache reuse;
-4. use the cheapest model meeting QualityFloor;
-5. escalate only when policy/evidence justifies it.
+4. use the cheapest eligible route meeting QualityFloor;
+5. escalate only when policy/evidence justifies it;
+6. optimize total verified outcome, not isolated API-call price.
 
 ## Failover
 Failover is capability-aware, not merely model-name substitution. A fallback must satisfy required structured output, tools, context, assurance and privacy constraints. If no compatible route exists, BLOCK rather than silently degrading.
 
 Use bounded retries, exponential backoff/jitter where appropriate, idempotency keys for repeatable provider calls and circuit breakers for unhealthy routes.
+
+Provider/model retirement is treated as configuration/eval invalidation, not an architectural migration.
 
 ## Quality protection
 Routing changes must not increase:
@@ -166,16 +178,21 @@ Routing changes must not increase:
 - false APPROVED verdicts;
 - correction rounds;
 - repeated known failures;
-- source-grounding failures.
+- source-grounding failures;
+- stale-cache returns.
 
 Savings that degrade these metrics are rejected.
 
+## Quality Debt
+If policy allows a temporary route below the preferred (but still minimum-safe) profile during outage/budget events, it creates a traceable Quality Debt record with revalidation rules. HIGH_ASSURANCE cannot use silent degradation; unavailable required assurance means BLOCK.
+
 ## Future innovations
-- Contextual bandit routing trained on verified outcomes, initially shadow-only.
+- Contextual-bandit routing trained on verified outcomes, initially shadow-only.
 - Per-project model priors that learn which model/profile performs best for specific task classes.
-- Cache Value Predictor that decides whether provider cache writes are economically justified based on expected reuse.
-- Route Portfolio for high-uncertainty tasks: cheap parallel candidate generation plus one strong adjudicator when measured payoff exceeds cost.
-- Quality Debt Ledger that records routes accepted below preferred quality due to outages/budgets and requires later revalidation where policy allows temporary degradation.
+- Cache Value Predictor for economically justified cache writes.
+- Route Portfolio for high-uncertainty tasks: cheap parallel candidate generation plus one strong adjudicator only when measured payoff exceeds cost.
+- Quality Debt Ledger for explicitly permitted degraded routes requiring later revalidation.
+- Model retirement watcher that marks affected ModelMesh profiles stale and launches replacement evals.
 
 ## Freeze boundary
-Freeze the provider-neutral architecture, quality floors, layered cache/invalidation semantics, failover safety and eval requirements. Exact model names, prices, routing thresholds and vendor-specific cache settings remain configuration refreshed from current provider data and project evals.
+Frozen: provider-neutral router/cache architecture, QualityFloor dependency, layered cache/invalidation semantics, capability-aware failover, no-silent-degradation rules, cost telemetry and eval requirements. Exact model names, prices, routing thresholds, budgets and vendor-specific cache settings remain configuration refreshed from current provider data and project evals.
