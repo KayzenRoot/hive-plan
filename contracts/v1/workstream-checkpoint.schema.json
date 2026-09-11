@@ -21,7 +21,7 @@
     "active_issue_ids": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
     "active_work_order_ids": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 160}, "uniqueItems": true},
     "active_pr_ids": {"type": "array", "items": {"type": "integer", "minimum": 1}, "uniqueItems": true},
-    "canonical_sources": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/artifactRef"}},
+    "canonical_sources": {"type": "array", "minItems": 1, "items": {"$ref": "common.schema.json#/$defs/sourceFingerprint"}},
     "frozen_decisions": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 500}},
     "unresolved_decisions": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 1000}},
     "completed_since_previous": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 2000}},
