@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hive-plan.local/contracts/v1/correction-delta.schema.json",
+  "title": "Hive Plan Correction Delta v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "artifact_id", "artifact_digest", "project_id", "increment_id", "work_order", "review_receipt", "delta_number", "findings_to_fix", "required_changes", "required_tests", "required_evidence", "scope_expansion", "stop_condition", "created_at", "producer"],
+  "properties": {
+    "artifact_type": {"const": "correction_delta"},
+    "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
+    "artifact_id": {"$ref": "common.schema.json#/$defs/artifactId"},
+    "artifact_digest": {"$ref": "common.schema.json#/$defs/digest"},
+    "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
+    "increment_id": {"$ref": "common.schema.json#/$defs/incrementId"},
+    "work_order": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "review_receipt": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "delta_number": {"type": "integer", "minimum": 1},
+    "findings_to_fix": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 120},
+    "required_changes": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 2000}},
+    "changed_constraints": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 2000}},
+    "required_tests": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 1000}},
+    "required_evidence": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1, "maxLength": 1000}},
+    "scope_expansion": {"const": false},
+    "stop_condition": {"type": "string", "minLength": 1, "maxLength": 3000},
+    "created_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "producer": {"$ref": "common.schema.json#/$defs/producer"},
+    "extensions": {"$ref": "common.schema.json#/$defs/extensions"}
+  }
+}
