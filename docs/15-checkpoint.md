@@ -1,10 +1,9 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0003  
+Checkpoint ID: HP-CP-0004  
 Status: PLANNING ACTIVE  
-Canonical branch target: `main`  
-Active planning increment: `HP-PLAN-001`  
-Active planning branch: `docs/hp-plan-001-interviewer-protocol`
+Canonical branch: `main`  
+HP-PLAN-001 merge SHA: `3e9b69c908f7d475eecedd5f4f933a77368abb45`
 
 ## Frozen
 - Product identity and V1 mission.
@@ -27,13 +26,16 @@ Active planning branch: `docs/hp-plan-001-interviewer-protocol`
 - Governed agent authority levels and operator interruption points.
 - Innovation governance/classification without silent scope expansion.
 
-## HP-PLAN-001 artifacts
-- `docs/20-interviewer-planning-protocol.md`
-- `docs/21-agent-authority-matrix.md`
-- Decisions Ledger D-011 through D-016
+## Completed planning increment
+`HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
 
-## Current planning state
-HP-PLAN-001 is specification-complete and awaiting repository PR audit/merge. No implementation is authorized.
+### Evidence
+- Issue #2 closed as completed.
+- PR #3 audited and squash-merged.
+- `docs/20-interviewer-planning-protocol.md` frozen.
+- `docs/21-agent-authority-matrix.md` frozen.
+- Decisions Ledger D-011 through D-016 frozen.
+- GitHub self-approval was technically disallowed because PR author and connected account are the same; the objective audit verdict was recorded as a PR review comment before merge.
 
 ## Open planning decisions
 - GitHub governance/lifecycle details beyond baseline.
@@ -46,10 +48,10 @@ HP-PLAN-001 is specification-complete and awaiting repository PR audit/merge. No
 - Numeric Planning Confidence/question-priority thresholds after evals.
 
 ## Blockers
-None for continued planning after HP-PLAN-001 audit.
+None for continued planning.
 
 ## Implementation authorization
 NOT GRANTED. No production code should be started until the planning freeze audit authorizes the first Work Order.
 
-## Proposed next necessary planning increment
-Define the project-planning lifecycle and GitHub governance model end-to-end: project creation/bootstrap, Source Pack generation, planning branches/PRs/issues, freeze/version semantics, releases/tags/patches, canonical promotion, and planning-history traceability.
+## Next necessary planning increment
+Define and freeze the project-planning lifecycle and GitHub governance model end-to-end: project creation/bootstrap, Source Pack generation, planning branches/PRs/issues, freeze/version semantics, releases/tags/patches, canonical promotion, and planning-history traceability.
