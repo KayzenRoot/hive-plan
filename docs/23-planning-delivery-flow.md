@@ -1,6 +1,6 @@
 # Planning & Delivery Flow
 
-Status: PROPOSED — HP-PLAN-002
+Status: FROZEN — HP-PLAN-002
 
 ## Goal
 Create the fastest safe path from approved planning to verified code without losing traceability, quality, or recoverability.
@@ -200,5 +200,5 @@ Measure, per increment:
 
 Speed optimization must target total `idea → verified merge` time, not just code-generation speed.
 
-## Proposed quality rule
-The fastest workflow is the one that minimizes rework. Hive Plan therefore optimizes for `verified throughput`, not raw commits per hour.
+## Frozen quality rule
+The fastest workflow is the one that minimizes rework. Hive Plan optimizes for `verified throughput`, not raw commits per hour.
