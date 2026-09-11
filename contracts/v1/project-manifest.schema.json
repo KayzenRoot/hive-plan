@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hive-plan.local/contracts/v1/project-manifest.schema.json",
+  "title": "Hive Plan Project Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "artifact_id", "artifact_digest", "project_id", "name", "project_type", "repository", "lifecycle_stage", "planning", "implementation", "risk_class", "profiles", "source_pack_schema_version", "created_at", "producer"],
+  "properties": {
+    "artifact_type": {"const": "project_manifest"},
+    "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
+    "artifact_id": {"$ref": "common.schema.json#/$defs/artifactId"},
+    "artifact_digest": {"$ref": "common.schema.json#/$defs/digest"},
+    "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
+    "name": {"type": "string", "minLength": 1, "maxLength": 160},
+    "project_type": {"type": "string", "enum": ["application", "service", "library", "platform", "game", "infrastructure", "research", "other"]},
+    "repository": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["full_name", "default_branch", "visibility"],
+      "properties": {
+        "full_name": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+        "default_branch": {"type": "string", "minLength": 1, "maxLength": 120},
+        "visibility": {"type": "string", "enum": ["public", "private", "internal"]}
+      }
+    },
+    "lifecycle_stage": {"type": "string", "enum": ["IDEA", "DISCOVERY", "PLANNING", "PLANNING_FROZEN", "IMPLEMENTATION", "VALIDATION", "RELEASE_CANDIDATE", "RELEASED", "MAINTENANCE"]},
+    "current_release_line": {"type": ["string", "null"], "maxLength": 80},
+    "checkpoint_id": {"type": ["string", "null"], "maxLength": 100},
+    "active_increment_id": {"anyOf": [{"$ref": "common.schema.json#/$defs/incrementId"}, {"type": "null"}]},
+    "planning": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["frozen"],
+      "properties": {
+        "frozen": {"type": "boolean"},
+        "freeze_id": {"type": ["string", "null"], "maxLength": 120}
+      }
+    },
+    "implementation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["authorized"],
+      "properties": {
+        "authorized": {"type": "boolean"},
+        "authorization_ref": {"type": ["string", "null"], "maxLength": 300}
+      }
+    },
+    "risk_class": {"$ref": "common.schema.json#/$defs/riskClass"},
+    "profiles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["memory", "executor", "review", "ci"],
+      "properties": {
+        "memory": {"type": "string", "minLength": 1, "maxLength": 100},
+        "executor": {"type": "string", "minLength": 1, "maxLength": 100},
+        "review": {"type": "string", "minLength": 1, "maxLength": 100},
+        "ci": {"type": "string", "minLength": 1, "maxLength": 100}
+      }
+    },
+    "source_pack_schema_version": {"type": "string", "minLength": 1, "maxLength": 40},
+    "created_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "producer": {"$ref": "common.schema.json#/$defs/producer"},
+    "extensions": {"$ref": "common.schema.json#/$defs/extensions"}
+  }
+}
