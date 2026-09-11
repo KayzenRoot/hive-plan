@@ -14,7 +14,7 @@
   "active_issue_ids":[23],
   "active_work_order_ids":[],
   "active_pr_ids":[],
-  "canonical_sources":[{"artifact_id":"HP-PLAN-010","artifact_type":"planning_increment","artifact_digest":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","location":"docs/89-engineering-chat-project-brain.md","local_only":false}],
+  "canonical_sources":[{"source_id":"docs/89-engineering-chat-project-brain.md","source_type":"architecture","authority":"CANONICAL","repository":"KayzenRoot/hive-plan","path":"docs/89-engineering-chat-project-brain.md","git_sha":"daedec3cc251e7abfd074eab31812ebafe9d814e","fingerprint":"sha256:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa","critical":true}],
   "frozen_decisions":[],
   "unresolved_decisions":["Final freeze requires mechanical validation and reconciliation."],
   "completed_since_previous":["Visual Bible, checkpoint contracts and implementation blueprint governance designed."],
