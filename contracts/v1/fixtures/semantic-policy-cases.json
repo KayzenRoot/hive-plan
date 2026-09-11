@@ -1,0 +1,22 @@
+{
+  "suite": "hp-plan-010-semantic-policy",
+  "version": "1.0.0",
+  "cases": [
+    {"id":"SP-001","expect":"REJECT","condition":"checkpoint_index.active_workstream_id does not resolve to exactly one listed workstream"},
+    {"id":"SP-002","expect":"REJECT","condition":"checkpoint project/repository/workstream differs from its index entry"},
+    {"id":"SP-003","expect":"REJECT","condition":"checkpoint index digest does not match referenced immutable checkpoint digest"},
+    {"id":"SP-004","expect":"REJECT","condition":"attempt to rewrite an immutable checkpoint history artifact"},
+    {"id":"SP-005","expect":"REJECT","condition":"resume has multiple equally plausible consequential workstreams and no authoritative selector"},
+    {"id":"SP-006","expect":"REJECT","condition":"blueprint project/increment/work_order/context_lock identities do not agree"},
+    {"id":"SP-007","expect":"REJECT","condition":"blueprint scope exceeds authorized Work Order scope"},
+    {"id":"SP-008","expect":"REJECT","condition":"executor changes a FROZEN blueprint decision"},
+    {"id":"SP-009","expect":"REJECT","condition":"blueprint deviation has SCOPE_EXPANSION with SAFE_LOCAL_CORRECTION"},
+    {"id":"SP-010","expect":"REJECT","condition":"blueprint deviation has context_lock STALE with SAFE_LOCAL_CORRECTION"},
+    {"id":"SP-011","expect":"RECOMPILE_BLUEPRINT_OR_WORK_ORDER","condition":"deviation affects public contracts or invalidates required tests"},
+    {"id":"SP-012","expect":"REJECT","condition":"review receipt does not bind exact execution head plus Work Order, Context Lock and Blueprint digests"},
+    {"id":"SP-013","expect":"SAFE_CONTINUE","condition":"resume checkpoint digest/SHA/project/workstream match and no newer critical source supersedes it"},
+    {"id":"SP-014","expect":"RECONCILE_REQUIRED","condition":"newer noncritical canonical state exists after checkpoint watermark"},
+    {"id":"SP-015","expect":"STALE_CONTEXT_LOCK","condition":"newer critical source changes invalidate the active Context Lock"}
+  ],
+  "note": "These cases require a semantic validator/test harness in implementation; standalone JSON Schema is intentionally insufficient for cross-artifact policy." 
+}
