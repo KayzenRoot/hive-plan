@@ -1,6 +1,6 @@
 # Work Order Compiler Evals & Quality Gates
 
-Status: PROPOSED — HP-PLAN-004
+Status: FROZEN POLICY — HP-PLAN-004
 
 ## Purpose
 Prevent optimization features from silently making Work Orders slower, larger, more expensive or less accurate. Every compiler/retrieval/routing change must be evaluated against representative engineering tasks.
@@ -112,3 +112,5 @@ Expose in cockpit per project/compiler version:
 
 ## Freeze rule
 A technology or optimization becomes default only after it beats the simpler baseline on the metrics relevant to its claimed benefit without violating quality/security gates.
+
+This eval/regression policy is frozen; numeric thresholds remain configurable and must be established from benchmark evidence before implementation defaults are promoted.
