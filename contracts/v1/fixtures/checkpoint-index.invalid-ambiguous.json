@@ -1,0 +1,9 @@
+{
+  "artifact_type": "checkpoint_index",
+  "schema_version": "1.0.0",
+  "project_id": "hive-plan",
+  "repository": "KayzenRoot/hive-plan",
+  "workstreams": [],
+  "updated_at": "not-a-rfc3339-timestamp",
+  "unexpected_field": "must be rejected"
+}
