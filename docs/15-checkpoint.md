@@ -1,6 +1,6 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0012  
+Checkpoint ID: HP-CP-0013  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
 Last canonical planning merge: `fb769014f1b4002aaa71942ef466f21760eeb935` (`HP-PLAN-004`)  
@@ -27,37 +27,32 @@ Active planning branch: `docs/hp-plan-005-model-router-cache`
 - Deterministic-first search cascade and content-addressed incremental caches.
 - Benchmark-gated, replaceable search/parser/embedding/reranking backends.
 - Risk-weighted compiler evals and downstream verified-outcome regression gates.
+- QualityFloor tiers T0 DETERMINISTIC, T1 FAST_CHEAP, T2 BALANCED, T3 STRONG and T4 HIGH_ASSURANCE.
+- Verified Outcome Cost + Rework Tax as routing economics rather than isolated API-call price.
+- Model self-confidence cannot upgrade assurance; evidence and policy control escalation/acceptance.
+- HIGH_ASSURANCE cannot silently degrade; temporary permitted degradation creates Quality Debt.
+- Provider-neutral ModelMesh/RouteGuard/CacheFabric/BudgetPilot/ProviderSentinel/RouteLab architecture.
+- Fingerprint-bound layered cache with provider-specific caching isolated behind adapters.
+- Capability-aware failover and routing/cache promotion only through quality/regression evals.
 
 ## Completed planning increments
 - `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
 - `HP-PLAN-002` — planning/delivery lifecycle, operational learning memory and GitHub governance; merged through PR #5.
 - `HP-PLAN-003` — machine-readable artifact contracts; objectively audited and squash-merged through PR #7.
 - `HP-PLAN-004` — Work Order Compiler & Context Optimization Engine; objectively audited and squash-merged through PR #9.
+- `HP-PLAN-005` — Model Router + Cache/Cost Engine; specification frozen and awaiting objective PR audit/merge.
 
-## Active planning increment
-`HP-PLAN-005` — Model Router + Cache/Cost Engine.
-
-### HP-PLAN-005 current artifacts
-- `docs/34-model-router-cache-cost-engine.md` — proposed architecture.
-- `docs/35-model-router-cache-evals.md` — proposed eval/regression policy.
+## HP-PLAN-005 artifacts
+- `docs/34-model-router-cache-cost-engine.md` — frozen architecture.
+- `docs/35-quality-floor-routing-policy.md` — frozen QualityFloor/routing policy.
+- `docs/36-routing-cache-evals.md` — frozen eval/regression policy.
+- `docs/37-provider-capability-live-notes.md` — living, non-canonical provider research/config input.
+- Decisions Ledger D-022 and D-023.
 - Issue #10.
 
-## Current proposed direction
-- RouteGuard classifies task/risk/assurance before selecting a model.
-- ModelMesh keeps provider/model capabilities replaceable and telemetry-backed.
-- QualityFloor prevents cost optimization from silently lowering assurance.
-- CacheFabric layers deterministic, retrieval, semantic, ContextCapsule, safe result and provider caches.
-- Cache reuse is fingerprint-bound to canonical state, policy, prompt/template, model/tool/schema dependencies.
-- BudgetPilot tracks token/money/latency budgets without overriding QualityFloor.
-- ProviderSentinel supplies health telemetry, bounded retries, circuit breakers and capability-aware failover.
-- RouteLab uses shadow routing/evals before policy promotion.
-- Provider-specific prompt/context caching is an adapter capability, not core workflow semantics.
-
 ## Open planning decisions
-- Final HP-PLAN-005 architecture/freeze.
-- Initial model/provider capability profiles and routing thresholds after current-provider research/evals.
-- Exact safe-result-cache eligibility policy.
-- Exact cost/latency budget defaults by task class.
+- Initial model/provider tier assignments and numeric routing/budget thresholds after evals/current-provider refresh.
+- Exact safe-result-cache eligibility details after implementation threat/eval testing.
 - Exact repository-size/query thresholds for indexed lexical backend after benchmarks.
 - Exact hybrid retrieval fusion/reranking algorithm after evals.
 - Exact local embedding/reranking profiles after hardware/quality benchmarks.
@@ -69,10 +64,10 @@ Active planning branch: `docs/hp-plan-005-model-router-cache`
 - Byte-level contract digest golden vectors and validator runtime selection at implementation time.
 
 ## Blockers
-None for continued planning.
+None for continued planning after HP-PLAN-005 audit.
 
 ## Implementation authorization
 NOT GRANTED. Production code remains blocked until the planning freeze audit authorizes the first implementation Work Order.
 
-## Next necessary discussion
-Review the proposed Model Router + Cache/Cost architecture, especially QualityFloor, cache safety/invalidation, failover semantics and whether V1 should start with one provider plus provider-neutral adapters or multiple live providers from day one.
+## Proposed next planning increment
+Define and freeze the Event Spine + Auto Review Orchestrator: local GitHub observation strategy, completion-manifest/CI event correlation, event journal, idempotency/debounce, PR-head drift cancellation, review eligibility state machine, automatic Evidence Bundle assembly, review/audit triggering, correction prompt generation and operator notification. Webhook/tunnel support remains optional; local V1 must work without exposing the machine publicly.
