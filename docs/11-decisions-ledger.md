@@ -74,6 +74,10 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 **Decision:** The governed delivery unit uses a stable increment/Work Order ID across issue, Context Lock, branch, Work Order, execution manifest, PR, evidence, Correction Deltas, review receipt, checkpoint and lessons. Review is layered deterministic-first, then cheap-model triage, domain specialists, and strong-model audit only when justified. Corrections stay in the same increment/PR when safe. Speed is measured primarily as total `idea → verified merge` time and rework/escaped-defect reduction, not raw code-generation throughput.  
 **Status:** FROZEN.
 
+## D-019 — GitHub governance and release lifecycle
+**Decision:** Hive Plan uses short-lived increment branches off `main`, governed planning and implementation PRs, issue/milestone objects with stable identities, explicit freeze/unfreeze semantics, SemVer-compatible versioning, immutable release tags, evidence-based patch/hotfix flows, SHA-based canonical promotion, deterministic repository-health signals, public-repository secret/sensitive-data gates, and automatic low-risk GitHub stewardship. Long-lived GitFlow-style branches are avoided by default; `release/*` is used only when evidence shows release preparation requires it.  
+**Status:** FROZEN.
+
 ## Open decisions
 - Exact framework/runtime stack.
 - Exact vector store/database strategy after benchmark.
@@ -82,4 +86,4 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 - Event observation strategy mix (polling vs optional local tunnel/webhook).
 - Exact design tokens/brand accent system.
 - Exact numeric thresholds/weights used by Planning Confidence and question-priority scoring after evals.
-- Final GitHub lifecycle/freeze/version/release semantics proposed in `docs/24-github-governance-lifecycle.md`.
+- Project Manifest exact schema/version and machine-readable Work Order/completion/evidence contracts.
