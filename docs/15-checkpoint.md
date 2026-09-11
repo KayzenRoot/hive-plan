@@ -1,6 +1,6 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0019  
+Checkpoint ID: HP-CP-0020  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
 Last canonical planning merge: `b13834fe01ed8b25f1277c114e3b3a7684877e52` (HP-PLAN-007 status reconciliation after PR #15/#17)  
@@ -21,7 +21,7 @@ Active planning branch: `docs/hp-plan-008-stack-data-architecture`
 - Focused Senior Review: actual diff + semantic impact closure, conditional UADS specialists, FindingGate, SARIF-normalized analyzers and delta-first corrections.
 - Governed Agent OS, SkillForge, ResearchRadar, TeamComposer, CouncilBus, Dissent Ledger, AgentGovernor and AgentTaskGraph.
 - Open interoperability direction using Agent Skills-style packages and MCP/A2A-compatible adapters without lock-in.
-- Principal ecosystem specialists A-031 HIVE, A-032 UGAS and A-033 UADS are accepted by ADR-028 and use live repository truth + Tri-System Harmony Protocol.
+- Principal ecosystem specialists A-031 HIVE, A-032 UGAS and A-033 UADS use live repository truth, EcosystemContextStamp and Tri-System Harmony Protocol.
 
 ## Completed planning increments
 - HP-PLAN-001 — Interviewer + Planning Protocol.
@@ -30,48 +30,51 @@ Active planning branch: `docs/hp-plan-008-stack-data-architecture`
 - HP-PLAN-004 — Work Order Compiler & Context Optimization Engine.
 - HP-PLAN-005 — Model Router + Cache/Cost Engine.
 - HP-PLAN-006 — Event Spine + Auto Review + Focused Senior Review.
-- HP-PLAN-007 — Governed Agent OS, 30 senior/principal agents, skills/research fabric and UADS AgentTaskGraph; audited/merged through PR #15, status headers reconciled through PR #17.
+- HP-PLAN-007 — Governed Agent OS, skills/research fabric and UADS AgentTaskGraph; audited/merged through PR #15, status headers reconciled through PR #17.
 
 ## Active HP-PLAN-008
-Objective: freeze the implementation technology stack and data/persistence architecture with unusually strong emphasis on a beautiful high-performance realtime cockpit and maintainable local-first backend.
+Objective: freeze implementation technology stack plus data/persistence architecture, with unusually strong emphasis on a beautiful high-performance realtime cockpit, truthful system visualization and maintainable local-first backend.
 
-### Current proposed direction
-- React 19.3+ + TypeScript strict.
-- Vite 8.1+/Rolldown client build system.
-- TanStack Router + TanStack Query.
-- Base UI candidate + Tailwind CSS 4.3 custom design layer.
-- Motion for React.
-- Three.js WebGPURenderer + React Three Fiber for optional data-driven 3D, WebGL2 fallback and adaptive graphics profiles.
-- Node.js 24 LTS + TypeScript + Fastify backend.
-- HTTP/REST commands + SSE default realtime/LLM stream; WebSocket only where benchmarked need exists.
-- PostgreSQL 18 canonical datastore.
-- pgvector default vector/RAG candidate.
-- durable PostgreSQL event/outbox state with pg-boss as TRIAL candidate.
-- Redis optional/non-canonical in standalone V1.
-- content-addressed local artifact store for large immutable evidence/log assets.
-- OpenTelemetry-compatible instrumentation.
-- pnpm workspace modular monolith + workers, Docker Compose, no premature Kubernetes/microservices.
+### Accepted architecture decisions in this branch
+- ADR-029 accepts React 19.3+ + TypeScript strict + Vite 8.1+/Rolldown + TanStack Router/Query + project-owned CockpitProjectionStore.
+- Motion is the preferred interaction animation layer.
+- React Three Fiber + Three.js WebGPURenderer is the optional Hive Core path with WebGL2 fallback and mandatory DOM/2D VisualTruth Mirror.
+- Node.js 24 LTS + TypeScript + Fastify modular monolith/workers is the V1 backend direction.
+- HTTP snapshots/commands + SSE are the default realtime pattern; WebSocket is exception-by-need.
+- pnpm workspace + Docker Compose local-first; no premature Kubernetes/microservices.
+- ADR-030 accepts PostgreSQL 18 as primary canonical transactional datastore.
+- pgvector is the default replaceable V1 vector/RAG candidate.
+- durable PostgreSQL jobs/outbox is the architecture direction; pg-boss remains TRIAL.
+- Redis is optional/non-canonical in standalone V1.
+- large immutable evidence/log/benchmark assets use local content-addressed storage.
+- RestoreProof is required before recovered state becomes READY.
 
-### Newly added ecosystem specialization
-- A-031 Principal HIVE Systems Specialist.
-- A-032 Principal UGAS Production Systems Specialist.
-- A-033 Principal UADS Orchestration Specialist.
-- `EcosystemContextStamp` freshness rule before consequential cross-system guidance.
-- Cross-system skills require affected specialist reviews + SkillForge/security gates.
-- HIVE = context/memory/intelligence substrate; UADS = engineering orchestration; UGAS = multimodal production; Hive Plan retains planning/governance/review authority.
-
-### Pressure-test controls now proposed
+### Frontend / cockpit controls
+- Obsidian Glass / Electric Signal visual language.
 - RenderBudget Governor + Frame-Time Circuit Breaker.
-- VisualTruth Mirror and 2D semantic fallback for every critical 3D state.
-- CockpitProjectionStore separating canonical server state, realtime projection, ephemeral UI and graphics state.
-- PulseMux event classification/coalescing and ProjectionFence freshness protection.
-- worker isolation for indexing/review/model/GitHub tasks.
-- durable reconnect/event cursor for SSE projections.
-- PostgreSQL authority classes, paired backup epoch, CAS reconciliation and Migration Gate.
-- retrieval cascade exact/lexical/AST/FIG/vector/rerank/authority filter.
-- ResourcePeacekeeper coordinating cockpit resource demand with local AI/UGAS/HIVE work.
-- RestoreProof before recovered state is marked READY.
-- trust zones, AgentGovernor authority checks, prompt/tool-injection containment, dependency circuit breakers, bulkheads and Incident Capsules.
+- VisualTruth Mirror and 2D semantic fallback for critical 3D state.
+- CockpitProjectionStore separates business projection, ephemeral UI and graphics state.
+- PulseMux event coalescing/backpressure and ProjectionFence freshness protection.
+- ResourcePeacekeeper coordinates cockpit GPU/CPU demand with local HIVE/UGAS/AI workloads.
+- graphics profiles: CINEMATIC, BALANCED, EFFICIENT and REDUCED.
+- first vertical slice is specified as a real end-to-end cockpit, not a mock dashboard.
+
+### Realtime projection contract
+- initial HTTP snapshot + watermark-bound SSE deltas;
+- explicit CURRENT / STALE / DEGRADED / UNKNOWN / NOT_CONNECTED / NOT_AVAILABLE states;
+- critical transitions are never sampled away;
+- out-of-order/mismatched watermarks trigger reconciliation;
+- Canvas/3D consumes throttled visualization projections separate from business truth;
+- projection caches are rebuildable and never canonical.
+
+### Operational/security/resilience direction
+- worker isolation for indexing/review/model/GitHub work;
+- durable reconnect/event cursor semantics;
+- PostgreSQL authority classes, paired backup epoch, CAS reconciliation and Migration Gate;
+- retrieval cascade exact/lexical/AST/FIG/vector/rerank/authority filter;
+- trust zones, AgentGovernor authority checks, prompt/tool-injection containment;
+- dependency circuit breakers, bulkheads and Incident Capsules;
+- OpenTelemetry-compatible tracing/metrics/logs.
 
 ## HP-PLAN-008 artifacts
 - `docs/73-technology-stack-proposal.md`
@@ -81,39 +84,31 @@ Objective: freeze the implementation technology stack and data/persistence archi
 - `docs/77-hive-ugas-uads-specialist-agents.md`
 - `docs/78-hp-plan-008-pressure-test.md`
 - `docs/79-operational-security-observability-resilience.md`
+- `docs/80-first-vertical-slice-cockpit.md`
+- `docs/81-cockpit-realtime-projection-contract.md`
 - `adr/ADR-028-hive-ugas-uads-principal-specialists.md`
+- `adr/ADR-029-v1-application-runtime-and-cockpit-stack.md`
+- `adr/ADR-030-v1-data-persistence-and-recovery-architecture.md`
 - `agents/registry.yaml` v1.1 with A-001..A-033.
 - Issue #16.
 
-## Frontend visual direction under review
-Working language: **Obsidian Glass / Electric Signal**.
-- dark graphite/obsidian cockpit;
-- restrained glassmorphism;
-- cyan/blue/violet signal spectrum;
-- data-driven energy flow;
-- optional central 3D Hive Core;
-- real-time project/agent/review/cost/CI telemetry;
-- cinematic, balanced, efficient and reduced-motion graphics tiers;
-- 3D is progressive enhancement and never the sole representation of critical state;
-- frontend vertical slice remains an early implementation priority.
-
-## Open HP-PLAN-008 decisions
-- Base UI vs Radix final primitive choice after slice benchmark.
-- ECharts vs uPlot split by chart workload.
-- pg-boss vs explicit lightweight Postgres worker/outbox implementation.
-- exact TypeScript SQL/query/migration layer.
+## Still benchmark-gated / open
+- Base UI vs Radix primitive layer.
+- ECharts vs uPlot or one-engine simplification.
+- pg-boss vs smaller explicit PostgreSQL outbox/worker.
+- exact TypeScript SQL/query/migration library.
 - exact Redis activation threshold.
 - exact dedicated-vector-DB threshold.
-- exact 3D graphics budgets/LOD/DPR/worker strategy after RTX 5050/browser benchmark.
+- exact graphics/LOD/DPR/worker budgets on representative hardware.
 - exact SecretVault Windows/Docker provider.
-- exact local telemetry persistence/retention backend and numeric SLOs.
+- exact telemetry persistence/retention and numeric SLOs.
 - exact UADS/HIVE/UGAS adapter API versions and bridge contracts at implementation time.
 
 ## Blockers
-None for continued HP-PLAN-008 planning/research.
+None for final HP-PLAN-008 audit/freeze.
 
 ## Implementation authorization
 NOT GRANTED. Production code remains blocked until planning freeze audit authorizes the first implementation Work Order.
 
-## Next necessary discussion
-Freeze or revise HP-PLAN-008 stack boundaries after final architecture pressure test, then define the first frontend-first vertical slice and its acceptance/benchmark/evidence contract without yet authorizing implementation.
+## Next necessary action
+Perform the final HP-PLAN-008 architecture audit against issue #16, reconcile any contradictions, freeze the accepted stack/data/cockpit boundaries, merge the planning PR, then open the first implementation-readiness increment for the frontend-first cockpit vertical slice without yet allowing Codex to expand scope beyond its Work Order.
