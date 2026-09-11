@@ -71,12 +71,17 @@ Immutable review/audit result tied to exact context/evidence/code fingerprints. 
 ### Correction Delta
 Minimal change contract for the same Work Order/PR after review failure. It contains only findings, changed constraints, required fixes/tests/evidence and the next stop condition. It must not silently broaden scope.
 
+### Checkpoint Delta
+First-class canonical-promotion contract. It declares which canonical sources/statuses are created, updated or superseded, the lifecycle transition, previous/proposed fingerprints and implementation-authorization change. It prevents a successful review from mutating project truth through prose-only interpretation.
+
 ## Authority boundaries
 - Completion Manifest: CLAIM/TRIGGER authority only.
 - Evidence Bundle fields backed by deterministic tools: VERIFIED FACT authority.
 - Review Receipt: GOVERNANCE verdict scoped only to its exact fingerprints.
+- Correction Delta: bounded corrective instruction for the same governed increment.
+- Checkpoint Delta: proposed canonical transition; it takes effect only after required governance/merge rules pass.
 - Work Order: EXECUTION contract, not permission to override canonical sources.
-- Project Manifest / Checkpoint / ADRs: canonical authority according to Source Hierarchy.
+- Project Manifest / approved Checkpoint / ADRs: canonical authority according to Source Hierarchy.
 
 ## Validation pipeline
 ```text
