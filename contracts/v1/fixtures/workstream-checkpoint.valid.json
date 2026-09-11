@@ -2,6 +2,7 @@
   "artifact_type":"workstream_checkpoint",
   "schema_version":"1.0.0",
   "checkpoint_id":"HP-CP-PLAN-010-001",
+  "artifact_digest":"sha256:7777777777777777777777777777777777777777777777777777777777777777",
   "project_id":"hive-plan",
   "repository":"KayzenRoot/hive-plan",
   "workstream_id":"planning/hp-plan-010",
