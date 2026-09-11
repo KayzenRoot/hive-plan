@@ -1,0 +1,18 @@
+{
+  "artifact_type":"blueprint_deviation",
+  "schema_version":"1.0.0",
+  "artifact_id":"HP-BD-BAD-001",
+  "artifact_digest":"sha256:5555555555555555555555555555555555555555555555555555555555555555",
+  "project_id":"hive-plan",
+  "increment_id":"HP-WO-EXAMPLE-001",
+  "blueprint_ref":{"artifact_id":"HP-BP-EXAMPLE-001","artifact_type":"implementation_blueprint","artifact_digest":"sha256:1111111111111111111111111111111111111111111111111111111111111111"},
+  "work_order_ref":{"artifact_id":"HP-WO-EXAMPLE-001","artifact_type":"work_order","artifact_digest":"sha256:2222222222222222222222222222222222222222222222222222222222222222"},
+  "expected_state":"Expected helper path.",
+  "actual_state":"Different helper path.",
+  "reason":"Claims repository mismatch but provides no proof.",
+  "evidence":[],
+  "impact":{"scope":"LOCAL","contracts":"UNCHANGED","tests":"UNCHANGED","context_lock":"FRESH"},
+  "resolution":"SAFE_LOCAL_CORRECTION",
+  "created_at":"2026-09-11T19:16:00Z",
+  "producer":{"kind":"executor","name":"bounded-executor"}
+}
