@@ -1,6 +1,6 @@
 # QualityFloor & Routing Policy
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-005
+Status: FROZEN — HP-PLAN-005
 
 ## Mission
 Guarantee that Hive Plan never reduces engineering assurance merely to reduce model/API spend. Routing is an optimization problem only after hard quality, privacy, capability and governance constraints are satisfied.
@@ -188,4 +188,4 @@ After verified completion, RouteLab records:
 Project-local priors may adapt from repeated evidence, but canonical routing policy does not self-modify from one observation.
 
 ## Freeze boundary
-Freeze the capability tiers, hard eligibility gate, Verified Outcome Cost principle, Rework Tax, evidence-based escalation, Quality Debt rules and HIGH_ASSURANCE no-silent-degradation rule. Exact model names, numeric thresholds and weighting coefficients remain runtime configuration validated by evals.
+Frozen: capability tiers, hard eligibility gate, Verified Outcome Cost principle, Rework Tax, evidence-based escalation, Quality Debt rules and HIGH_ASSURANCE no-silent-degradation rule. Exact model names, numeric thresholds and weighting coefficients remain runtime configuration validated by evals.
