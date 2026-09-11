@@ -1,9 +1,10 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0004  
+Checkpoint ID: HP-CP-0007  
 Status: PLANNING ACTIVE  
-Canonical branch: `main`  
-HP-PLAN-001 merge SHA: `3e9b69c908f7d475eecedd5f4f933a77368abb45`
+Canonical branch target: `main`  
+Active planning increment: `HP-PLAN-002`  
+Active planning branch: `docs/hp-plan-002-governance-memory`
 
 ## Frozen
 - Product identity and V1 mission.
@@ -25,21 +26,28 @@ HP-PLAN-001 merge SHA: `3e9b69c908f7d475eecedd5f4f933a77368abb45`
 - Explicit discovery Stop Condition.
 - Governed agent authority levels and operator interruption points.
 - Innovation governance/classification without silent scope expansion.
+- Operational learning memory: canonical + execution + experience + failure/negative knowledge, with provenance and authority metadata.
+- Prior-failure retrieval before Work Order finalization when relevant.
+- Stable increment identity across issue/branch/Work Order/PR/evidence/review/checkpoint/memory.
+- Layered deterministic-first review and correction-in-place policy.
+- Verified-throughput speed objective: optimize total idea-to-verified-merge time and rework reduction.
+- Professional GitHub lifecycle: short-lived branches, governed PRs, issue/milestone semantics, freeze/unfreeze rules, SemVer, immutable release tags, evidence-based patches, SHA promotion, repository health and publication safeguards.
 
-## Completed planning increment
-`HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
+## Completed planning increments
+- `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
+- `HP-PLAN-002` — planning lifecycle, operational learning memory and GitHub governance. Specification complete; awaiting PR audit/merge.
 
-### Evidence
-- Issue #2 closed as completed.
-- PR #3 audited and squash-merged.
-- `docs/20-interviewer-planning-protocol.md` frozen.
-- `docs/21-agent-authority-matrix.md` frozen.
-- Decisions Ledger D-011 through D-016 frozen.
-- GitHub self-approval was technically disallowed because PR author and connected account are the same; the objective audit verdict was recorded as a PR review comment before merge.
+### HP-PLAN-002 artifacts
+- `docs/22-operational-memory-rag.md` — frozen.
+- `docs/23-planning-delivery-flow.md` — frozen.
+- `docs/24-github-governance-lifecycle.md` — frozen.
+- Decisions Ledger D-017 — operational learning memory.
+- Decisions Ledger D-018 — verified-throughput delivery flow.
+- Decisions Ledger D-019 — GitHub governance and release lifecycle.
 
 ## Open planning decisions
-- GitHub governance/lifecycle details beyond baseline.
-- Work Order / completion / evidence schemas beyond baseline.
+- Project Manifest exact schema/version.
+- Machine-readable Work Order, Completion Manifest, Evidence Bundle and Review Receipt contracts.
 - Exact UADS/Hades V1 integration contract and current compatible version.
 - Data/persistence/vector-store benchmark decision.
 - Initial model-provider/profile matrix and routing thresholds.
@@ -48,10 +56,10 @@ HP-PLAN-001 merge SHA: `3e9b69c908f7d475eecedd5f4f933a77368abb45`
 - Numeric Planning Confidence/question-priority thresholds after evals.
 
 ## Blockers
-None for continued planning.
+None for continued planning after HP-PLAN-002 audit.
 
 ## Implementation authorization
 NOT GRANTED. No production code should be started until the planning freeze audit authorizes the first Work Order.
 
-## Next necessary planning increment
-Define and freeze the project-planning lifecycle and GitHub governance model end-to-end: project creation/bootstrap, Source Pack generation, planning branches/PRs/issues, freeze/version semantics, releases/tags/patches, canonical promotion, and planning-history traceability.
+## Proposed next planning increment
+Define and freeze versioned machine-readable artifact contracts: Project Manifest, Work Order, Completion Manifest, Evidence Bundle, Review Receipt, Context Lock and Correction Delta, including schema validation, fingerprints, provenance and compatibility rules.
