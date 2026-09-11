@@ -102,15 +102,60 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 **Decision:** Review scope is the actual diff plus its risk-governed semantic impact closure, not the whole repository. Hive Plan maintains a provenance-backed Feature Impact Graph mapping features/requirements to files, symbols, contracts, data, tests, runtime components and historical failures, updated from predicted and verified outcomes. Deterministic tools run first; UADS specialist agents are conditionally spawned with non-overlapping scope only for affected risk domains; a STRONG Senior Review Lead adjudicates normalized evidence-grounded findings. Review comments without actionable failure conditions/evidence are suppressed, and correction reviews are delta-first while preserving impacted regression coverage.  
 **Status:** FROZEN.
 
+## D-026 — Governed Agent OS and AgentTaskGraph
+**Decision:** Hive Plan uses TeamComposer, Capability Ledger, ExpertiseGraph, CouncilBus, Dissent Ledger, AgentGovernor and an executor-neutral AgentTaskGraph with explicit dependencies, read/write/watch sets, ContextCapsules, proof obligations and STOP conditions. Multi-agent execution is used only when verified value exceeds coordination cost; executors may not invent canonical roles or silently change project semantics. ADR-026.  
+**Status:** FROZEN.
+
+## D-027 — Skill Fabric, ResearchRadar and open interoperability
+**Decision:** Reusable agent procedures are governed through SkillCatalog/SkillForge/SkillResolver/SkillFitness; current technology/OSS research uses ResearchRadar and evidence-based ADOPT/TRIAL/WATCH/REJECT lifecycle. External research is untrusted evidence, never instruction authority. MCP/A2A-compatible adapters may be used without becoming canonical vendor dependencies. ADR-027.  
+**Status:** FROZEN.
+
+## D-028 — HIVE/UGAS/UADS principal ecosystem specialists
+**Decision:** Extend the canonical agent catalog with A-031 Principal HIVE Systems Specialist, A-032 Principal UGAS Production Systems Specialist and A-033 Principal UADS Orchestration Specialist. HIVE owns context/memory intelligence, UADS owns engineering orchestration, UGAS owns multimodal production and Hive Plan retains planning/governance/review authority. ADR-028.  
+**Status:** FROZEN.
+
+## D-029 — V1 application runtime and cockpit stack
+**Decision:** V1 uses React 19.3+ strict TypeScript, Vite/Rolldown, TanStack Router/Query, project-owned projection state, Tailwind 4 infrastructure, Motion, optional R3F/Three WebGPU with WebGL2 + VisualTruthMirror fallback; backend uses Node.js 24 LTS, Fastify, modular monolith + bounded workers, REST/snapshots + SSE, pnpm and Docker Compose. Replaceable UI/chart/runtime detail remains benchmark-bound. ADR-029.  
+**Status:** FROZEN.
+
+## D-030 — PostgreSQL-first persistence and recovery
+**Decision:** PostgreSQL 18 is the canonical transactional datastore; pgvector is the default V1 vector extension behind an adapter; durable PostgreSQL-backed jobs/outbox are preferred; Redis is optional/non-canonical; large immutable artifacts use a local content-addressed store with PostgreSQL metadata; recovery requires paired backup metadata and RestoreProof. ADR-030.  
+**Status:** FROZEN.
+
+## D-031 — First cockpit vertical slice readiness boundary
+**Decision:** HP-WO-0001 is frontend-first but end-to-end: one persisted cockpit, truthful availability/freshness states, snapshot+SSE watermark projections, PostgreSQL state, optional Hive Core with VisualTruthMirror, read-only HIVE/UADS/UGAS seams, and accessibility/reconnect/recovery/performance/security evidence. It may not pull full RAG, full agent runtime, mandatory Redis, microservices or external ecosystem mutations into the slice. ADR-031.  
+**Status:** FROZEN.
+
+## D-032 — Project Brain authority and MemoryProvider
+**Decision:** Project Brain is the governed context substrate behind Engineering Chat. Retrieval rank never overrides source authority; HIVE is the preferred MemoryProvider with embedded local fallback; conversation context is non-canonical; verified failure/success memory remains provenance/compatibility bound; canonical changes pass through the Artifact Promotion Gate. ADR-032.  
+**Status:** FROZEN.
+
+## D-033 — Voice-first governed Engineering Chat
+**Decision:** Engineering Chat is a voice-first, multimodal, source-grounded workspace using provider-neutral voice adapters and typed fallback. Natural-language actions resolve into governed typed ActionPlans; high-impact actions retain authority/confirmation requirements regardless of voice confidence; rich responses use validated semantic blocks and canonical artifact promotion remains governed. ADR-033.  
+**Status:** FROZEN.
+
+## D-034 — Multi-workstream checkpoint and zero-friction resume
+**Decision:** Project continuity uses a workstream-aware checkpoint index, immutable checkpoint history and digest-bound pointers. Resume phrases verify project/workstream/checkpoint/SHA/digest against GitHub and reconcile newer state before continuing; consequential ambiguity fails closed. Parallel sessions cannot silently overwrite continuity state. ADR-034.  
+**Status:** FROZEN.
+
+## D-035 — Governed Implementation Blueprint and bounded executor
+**Decision:** Complex Work Orders compile a governed Implementation Blueprint with G0-G3 guidance, exact scope/change surface/contracts/tests/evidence, a FROZEN/BOUNDED/OPEN_LOCAL/ESCALATE decision budget and evidence-backed Blueprint Deviations. Scope expansion, contract drift, invalidated tests or stale Context Locks cannot be hidden as local executor choices. Review binds exact Work Order, Context Lock, Blueprint and execution head. ADR-035.  
+**Status:** FROZEN.
+
+## D-036 — Cinematic, truthful and public-ready visual architecture
+**Decision:** Hive Plan uses Obsidian Glass / Electric Signal with Hive Core and VoiceOrb as signature systems. Cinematic rendering may never fabricate operational truth or become the only representation of critical state; VisualTruthMirror/accessibility and adaptive graphics are mandatory. Future public-product seams are preserved without adding billing, public auth, multi-tenancy or marketplace scope to V1. ADR-036.  
+**Status:** FROZEN.
+
 ## Open decisions
-- Exact framework/runtime stack.
-- Exact vector store/database strategy after benchmark.
-- Exact UADS/Hades V1 integration invocation/version details.
-- Initial LLM providers/models and routing thresholds.
-- Exact polling cadence, persistence/queue backend and optional webhook/tunnel implementation after benchmark.
-- Exact design tokens/brand accent system.
+- Exact UADS/Hades V1 invocation/version details after implementation handshake evidence.
+- Initial production LLM providers/models and numeric routing thresholds after current-provider evaluation.
+- Exact polling cadence and optional webhook/tunnel implementation after benchmark.
+- Exact primitive UI library, chart renderer and detailed graphics budgets after implementation bake-offs.
+- Exact design-token values, fonts and brand accent tuning after contrast/display/golden-scene validation.
+- Exact voice provider promotion order after Portuguese-BR quality/resource/privacy bake-off.
 - Exact numeric thresholds/weights used by Planning Confidence and question-priority scoring after evals.
 - Byte-level digest golden vectors and validator runtime selection at implementation time.
-- Exact Work Order compiler backend thresholds, retrieval fusion/reranker and local embedding profiles after benchmark.
+- Exact Work Order compiler retrieval thresholds, fusion/reranker and local embedding profiles after benchmark.
 - Exact ModelMesh tier assignments, routing weights/budgets and safe-result cache eligibility after evals/current-provider refresh.
 - Exact review impact-expansion thresholds, static-analysis portfolio and UADS model-per-agent assignments after review evals.
+- Exact Blueprint guidance-depth thresholds and semantic-validator implementation after blueprint-efficiency evals.
