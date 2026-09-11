@@ -1,6 +1,6 @@
 # Machine-Readable Artifact Contracts
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-003
+Status: FROZEN — HP-PLAN-003
 
 ## Purpose
 Hive Plan must move planning, execution, evidence, review and continuity between agents/tools without relying on prose interpretation. The canonical interchange layer is a set of small, versioned, machine-readable artifacts validated deterministically before any LLM is asked to reason about them.
@@ -41,7 +41,7 @@ A Context Lock contains an ordered set of source fingerprints such as:
 - Git SHA/blob SHA or equivalent deterministic version
 - authority class
 
-Hive Plan sorts and canonicalizes these entries and computes a `context_root` digest. This produces a compact stale-context check. If any critical source fingerprint changes, the recomputed root differs and dependent Work Orders/reviews are marked STALE.
+Hive Plan sorts and canonicalizes these entries and computes a `context_root` digest. If any critical source fingerprint changes, the recomputed root differs and dependent Work Orders/reviews are marked STALE.
 
 Evidence Bundles use the same principle to compute an `evidence_root` over verified evidence references. A Review Receipt binds at minimum:
 `project + increment + reviewed head SHA + context_root + evidence_root + policy/schema versions + verdict`.
@@ -148,5 +148,5 @@ Potential future technology, not required for V1:
 - transparency/append-only audit log for enterprise deployment.
 - CBOR/MessagePack internal transport for high-throughput deployments while retaining canonical JSON evidence.
 
-## Freeze gate
-HP-PLAN-003 is not complete until every required artifact has a schema, representative valid/invalid examples are planned for tests, cross-artifact links are unambiguous, stale-context behavior is deterministic and the contract suite can evolve without silently reinterpreting old evidence.
+## Frozen contract rule
+Canonical workflow artifacts are deterministically validated and fingerprinted before semantic reasoning. Review approval is scoped to exact code/context/evidence fingerprints, and canonical state promotion uses a structured Checkpoint Delta rather than prose interpretation.
