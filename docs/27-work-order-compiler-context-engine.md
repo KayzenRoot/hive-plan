@@ -1,6 +1,6 @@
 # Work Order Compiler & Context Optimization Engine
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-004
+Status: FROZEN — HP-PLAN-004
 
 ## Mission
 Compile approved planning into the smallest, freshest, highest-authority execution package that gives an executor enough information to implement correctly without wandering through the repository or receiving irrelevant history.
@@ -274,6 +274,9 @@ Track per Work Order:
 - correction rounds;
 - repeated failure prevented;
 - total time/cost to verified merge.
+
+## Freeze boundary
+The architecture above is FROZEN. Specific third-party search, parser, embedding, reranking and indexing backends remain replaceable behind providers and are promoted only by benchmark/eval evidence. No tool name is part of canonical execution semantics.
 
 ## Core principle
 The best Work Order is not the longest or most detailed. It is the smallest deterministic execution contract that contains every fact, constraint and proof obligation needed for the executor to succeed on the first safe attempt.
