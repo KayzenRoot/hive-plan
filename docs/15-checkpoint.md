@@ -1,95 +1,79 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0016  
+Checkpoint ID: HP-CP-0017  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
 Last canonical planning merge: `a1830a317c1fd5bef77409b5bc00426ec85d6c75` (`HP-PLAN-006`)  
 Active planning increment: `HP-PLAN-007`  
 Active planning branch: `docs/hp-plan-007-uads-agent-contract`
 
-## Frozen
-- Product identity and V1 mission.
-- Local-first single-user Docker deployment.
-- GitHub as canonical truth.
-- Hive V1 preferred MemoryProvider + embedded local-RAG fallback.
-- Codex as external executor in V1.
-- Cheap-model default + risk/complexity escalation + aggressive caching/context optimization.
-- Professional specialized agent organization.
-- Automatic completion-triggered review with independent evidence verification.
-- Dark technological command cockpit and early frontend vertical slice.
-- Context-first interviewing, specialist escalation, Assumption Register, Planning Confidence Map and Decision Pressure Test.
-- Agent authority levels, discovery Stop Condition and governed innovation lane.
-- Operational learning memory with successful patterns plus failure/negative knowledge and provenance.
-- Stable increment identity, short-lived GitHub branches, governed PRs, SemVer/release lifecycle and SHA-based canonical promotion.
-- Verified-throughput objective, deterministic-first review and correction-in-place.
-- Machine-readable artifact contracts with JSON Schema 2020-12, JCS-compatible SHA-256 fingerprints, Review Receipts and Checkpoint Deltas.
-- Work Order Compiler architecture: RepoPulse, ChangeGraph, FailureShield, TestLens, ContextCapsule, ExecutorFit and CompileGuard.
-- Deterministic-first search cascade and content-addressed incremental caches.
-- Benchmark-gated, replaceable search/parser/embedding/reranking backends.
-- Risk-weighted compiler evals and downstream verified-outcome regression gates.
-- QualityFloor tiers T0 DETERMINISTIC, T1 FAST_CHEAP, T2 BALANCED, T3 STRONG and T4 HIGH_ASSURANCE.
-- Verified Outcome Cost + Rework Tax as routing economics rather than isolated API-call price.
-- HIGH_ASSURANCE cannot silently degrade; temporary permitted degradation creates Quality Debt.
-- Provider-neutral ModelMesh/RouteGuard/CacheFabric/BudgetPilot/ProviderSentinel/RouteLab architecture.
-- Fingerprint-bound layered cache with provider-specific caching isolated behind adapters.
-- Local-first conditional GitHub observation with durable normalized EventSpine and optional webhook adapter.
-- At-least-once event processing with idempotent handlers, ReviewLease and EffectLedger exactly-once-effect strategy.
-- ReviewMVCC/SnapshotGuard: review bound to exact base/head SHA + context root + evidence root; stale review is cancelled.
-- EvidenceForge + Evidence Watermark: semantic review starts only after required proof channels exist.
-- Focused Senior Review Engine: actual diff + risk-governed semantic impact closure instead of whole-repository review.
-- Feature Impact Graph mapping feature/requirement → code/symbol/contract/data/test/runtime/failure with predicted/verified provenance.
-- Conditional UADS specialist-agent review with non-overlapping scope, normalized findings and STRONG Senior Review Lead.
-- FindingGate noise suppression and delta-first correction review.
-- Adapter-based static-analysis portfolio with SARIF-compatible finding normalization and benchmark-gated tools.
-- Incisive Review/Correction Prompt Compiler with per-agent scope, evidence obligations, task DAG, no unrelated refactors and explicit STOP CONDITION.
+## Frozen foundation
+- Product identity/V1 mission, local-first single-user Docker deployment and GitHub canonical truth.
+- Hive V1 preferred MemoryProvider with embedded local-RAG fallback.
+- Codex remains external executor; Hive Plan owns planning/governance/Work Orders/review/audit/continuity.
+- Context-first discovery, Planning Confidence, Assumption Register, Decision Pressure Test and governed agent authority.
+- Operational learning memory with verified successes, failures, corrections and provenance.
+- Short-lived GitHub branches, governed PR/release lifecycle and verified-throughput objective.
+- Versioned JSON artifact contracts, deterministic fingerprints, Review Receipts and Checkpoint Deltas.
+- Work Order Compiler: RepoPulse, ChangeGraph/FIG, FailureShield, TestLens, ContextCapsule, ExecutorFit and CompileGuard.
+- QualityFloor T0–T4, Verified Outcome Cost/Rework Tax, provider-neutral ModelMesh/CacheFabric and no silent HIGH_ASSURANCE downgrade.
+- EventSpine/GitPulse, ReviewMVCC/SnapshotGuard, EvidenceForge/Watermark, ReviewLease/EffectLedger and stale-review cancellation.
+- Focused Senior Review: actual diff + semantic impact closure, conditional UADS specialists, FindingGate, SARIF-normalized analyzers and delta-first corrections.
 
-## Completed planning increments
-- `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
-- `HP-PLAN-002` — planning/delivery lifecycle, operational learning memory and GitHub governance; merged through PR #5.
-- `HP-PLAN-003` — machine-readable artifact contracts; audited and squash-merged through PR #7.
-- `HP-PLAN-004` — Work Order Compiler & Context Optimization Engine; audited and squash-merged through PR #9.
-- `HP-PLAN-005` — Model Router + Cache/Cost Engine; audited and squash-merged through PR #11.
-- `HP-PLAN-006` — Event Spine + Auto Review + Focused Senior Review architecture; audited and squash-merged through PR #13 (`a1830a317c1fd5bef77409b5bc00426ec85d6c75`).
+## Newly frozen in HP-PLAN-007
+- **30 canonical V1 agent roles** authored in Hive Plan, A-001 through A-030; Codex/UADS must implement/load these definitions rather than inventing hidden roles.
+- Agent Operating System with TeamComposer, Capability Ledger, ExpertiseGraph, CouncilBus, Dissent Ledger and AgentGovernor.
+- Seniority by contract/evidence/evals, not persona wording.
+- Minimal-sufficient-team policy: one agent by default unless distinct expertise, independent assurance or safe parallelism creates verified value.
+- AgentTaskGraph with explicit dependencies, WRITE_SET/READ_SET/WATCH_SET, ContextCapsules, skills/tools, proof obligations, budgets and STOP CONDITION.
+- Dynamic ConcurrencyGovernor and conflict-safe serialization when mutable ownership safety cannot be proven.
+- SkillCatalog/SkillForge/SkillResolver/SkillFitness: agents may discover, reuse, compose, request and create candidate skills, but skills require validation/promotion and cannot self-grant permissions/authority.
+- ResearchRadar + Research/OSS Intelligence protocol: web/GitHub research is first-class but external content is untrusted evidence, not instruction authority.
+- OSS/technology due diligence covers license, maintenance, security, lock-in, benchmark evidence and ADOPT/TRIAL/WATCH/REJECT classification.
+- Structured inter-agent collaboration and explicit Dissent Ledger; majority vote cannot replace technical evidence.
+- Portable/open-standard direction: Agent Skills-style packages, MCP-compatible tool adapters and A2A-compatible discovery/delegation concepts may be used behind adapters without becoming mandatory V1 domain dependencies.
+- Stable agent prompt envelope + bounded dynamic ContextCapsules for caching/token efficiency.
 
-## Active planning increment
-`HP-PLAN-007` — UADS/Hades V1 Agent Execution Contract.
-
-### Objective
-Compile executor-neutral Work Orders/Correction Deltas into safe multi-agent execution DAGs that UADS/Hades can exploit without polluting canonical project semantics or increasing merge conflicts, duplicate work or unverified executor claims.
-
-### Planned HP-PLAN-007 subjects
-- Executor Capability Manifest / capability handshake.
-- AgentTaskGraph with dependency DAG and parallelism policy.
-- Per-agent role, scope, ContextCapsule and proof obligations.
-- File/symbol ownership hints and conflict avoidance.
-- Cancellation/retry/resume and partial-failure semantics.
-- Structured per-agent completion results and aggregate Completion Manifest.
-- Evidence Bundle correlation across agents.
-- Model/profile hints mapped through ModelMesh/QualityFloor.
-- UADS/Hades adapter plus safe fallback to single-agent Codex.
-- Multi-agent vs single-agent benchmark/eval gates.
+## Canonical/proposed HP-PLAN-007 artifacts
+- `docs/65-uads-agent-execution-contract.md`
+- `docs/66-agent-operating-system.md`
+- `docs/67-skill-fabric.md`
+- `docs/68-research-and-open-source-intelligence.md`
+- `docs/69-v1-agent-charters.md`
+- `docs/70-intelligent-team-composition.md`
+- `docs/71-hp-plan-007-agent-system-freeze.md`
+- `agents/registry.yaml`
+- `agents/README.md`
+- `skills/README.md`
+- `skills/_template/SKILL.md`
 - Issue #14.
 
-## Open planning decisions
-- Exact UADS/Hades V1 invocation syntax, version/capability discovery and adapter transport.
-- Exact conflict-safe workspace strategy supported by UADS/Hades, if any.
-- Exact agent task/context/output contracts after this increment.
-- Exact durable journal/database + wake-up queue implementation after stack/data ADR.
-- Exact polling/quiescence thresholds after benchmarks.
-- Exact review impact-expansion thresholds and analyzer portfolio after review benchmarks.
-- Initial model/provider tier assignments and numeric routing/budget thresholds after evals/current-provider refresh.
-- Exact Work Order compiler backend thresholds/retrieval fusion/local embedding profiles after benchmark.
-- Data/persistence/vector-store benchmark decision.
+## Completed planning increments
+- HP-PLAN-001 — Interviewer + Planning Protocol.
+- HP-PLAN-002 — delivery lifecycle, operational memory and GitHub governance.
+- HP-PLAN-003 — machine-readable artifact contracts.
+- HP-PLAN-004 — Work Order Compiler & Context Optimization Engine.
+- HP-PLAN-005 — Model Router + Cache/Cost Engine.
+- HP-PLAN-006 — Event Spine + Auto Review + Focused Senior Review.
+
+## Open decisions
+- Exact UADS/Hades V1 invocation/version/capability handshake and adapter transport.
+- Exact worktree/workspace isolation supported by UADS/Hades.
+- Exact Team Utility scoring weights/concurrency ceilings after evals.
+- Exact durable database/journal/wake-up queue implementation after stack/data ADR.
+- Exact polling/quiescence thresholds and review analyzer portfolio after benchmarks.
+- Initial model/provider mappings and numeric routing budgets after current-provider evals.
+- Exact Work Order retrieval fusion/local embedding/reranker choices after benchmarks.
+- Data/persistence/vector-store decision.
 - Technology stack ADR.
 - Detailed cockpit design system and interaction model.
-- Numeric Planning Confidence/question-priority thresholds after evals.
-- Byte-level artifact digest golden vectors and validator runtime selection at implementation time.
+- Numeric Planning Confidence thresholds and artifact digest golden vectors.
 
 ## Blockers
-None for continued planning.
+None for HP-PLAN-007 objective audit/merge or continued planning.
 
 ## Implementation authorization
-NOT GRANTED. Production code remains blocked until the planning freeze audit authorizes the first implementation Work Order.
+NOT GRANTED. Production code remains blocked until planning freeze audit authorizes the first implementation Work Order.
 
-## Next necessary discussion
-Define the AgentTaskGraph / Executor Capability Manifest boundary: what Hive Plan may safely parallelize, how agents receive isolated context and file/symbol ownership, and how per-agent outputs become one evidence-backed completion surface without executor-specific semantics entering the canonical Work Order.
+## Proposed next increment after HP-PLAN-007
+Design the **Technology Stack + Data/Persistence Architecture ADR** and benchmark plan, including application runtime/frameworks, relational/event/cache/vector/search storage, local hardware constraints, migrations/backups, security, observability and replaceable adapters. This will resolve several deferred implementation choices before frontend/backend coding begins.
