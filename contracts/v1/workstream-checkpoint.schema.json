@@ -4,11 +4,12 @@
   "title": "Hive Plan Workstream Checkpoint v1",
   "type": "object",
   "additionalProperties": false,
-  "required": ["artifact_type","schema_version","checkpoint_id","project_id","repository","workstream_id","workstream_kind","source_branch","source_commit_sha","project_phase","current_objective","canonical_sources","completed_since_previous","remaining_scope","blockers","known_risks","next_recommended_action","stop_condition","context_lock_state","resume_policy","created_at","producer"],
+  "required": ["artifact_type","schema_version","checkpoint_id","artifact_digest","project_id","repository","workstream_id","workstream_kind","source_branch","source_commit_sha","project_phase","current_objective","canonical_sources","completed_since_previous","remaining_scope","blockers","known_risks","next_recommended_action","stop_condition","context_lock_state","resume_policy","created_at","producer"],
   "properties": {
     "artifact_type": {"const": "workstream_checkpoint"},
     "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
     "checkpoint_id": {"type": "string", "minLength": 1, "maxLength": 160},
+    "artifact_digest": {"$ref": "common.schema.json#/$defs/digest"},
     "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
     "repository": {"type": "string", "minLength": 1, "maxLength": 300},
     "workstream_id": {"type": "string", "minLength": 1, "maxLength": 160},
