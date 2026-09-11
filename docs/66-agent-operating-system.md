@@ -1,6 +1,6 @@
 # Hive Plan Agent Operating System
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-007
+Status: FROZEN — HP-PLAN-007
 
 ## Mission
 Hive Plan agents form a governed senior software organization, not a bag of personas. Each agent has explicit expertise, activation rules, bounded authority, tool/skill rights, evidence obligations, collaboration contracts, memory policy, escalation paths and stop conditions.
