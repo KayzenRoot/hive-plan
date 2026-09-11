@@ -1,0 +1,8 @@
+{
+  "checkpoint_id": "HP-CP-0022",
+  "checkpoint_digest": "sha256:69b277b897d8ee3b06c8d3f0ba89ef234cfe3d43c75bab4ca85b433efe649d74",
+  "checkpoint_path": "checkpoints/history/HP-CP-0022.json",
+  "workstream_id": "planning/hp-plan-010",
+  "project_id": "hive-plan",
+  "updated_at": "2026-09-11T19:16:00Z"
+}
