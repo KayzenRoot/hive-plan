@@ -1,6 +1,6 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0006  
+Checkpoint ID: HP-CP-0007  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
 Active planning increment: `HP-PLAN-002`  
@@ -31,27 +31,23 @@ Active planning branch: `docs/hp-plan-002-governance-memory`
 - Stable increment identity across issue/branch/Work Order/PR/evidence/review/checkpoint/memory.
 - Layered deterministic-first review and correction-in-place policy.
 - Verified-throughput speed objective: optimize total idea-to-verified-merge time and rework reduction.
+- Professional GitHub lifecycle: short-lived branches, governed PRs, issue/milestone semantics, freeze/unfreeze rules, SemVer, immutable release tags, evidence-based patches, SHA promotion, repository health and publication safeguards.
 
-## Completed planning increment
-`HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
+## Completed planning increments
+- `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
+- `HP-PLAN-002` — planning lifecycle, operational learning memory and GitHub governance. Specification complete; awaiting PR audit/merge.
 
-## Active planning increment
-`HP-PLAN-002` — planning lifecycle and GitHub governance.
-
-### HP-PLAN-002 current artifacts
-- `docs/22-operational-memory-rag.md` — frozen direction.
+### HP-PLAN-002 artifacts
+- `docs/22-operational-memory-rag.md` — frozen.
 - `docs/23-planning-delivery-flow.md` — frozen.
-- `docs/24-github-governance-lifecycle.md` — proposed for freeze.
+- `docs/24-github-governance-lifecycle.md` — frozen.
 - Decisions Ledger D-017 — operational learning memory.
 - Decisions Ledger D-018 — verified-throughput delivery flow.
-
-## Current focus
-Review/freeze the proposed professional GitHub governance model: project bootstrap, manifest/lifecycle states, issue taxonomy, milestones, planning PRs, freeze/unfreeze semantics, SemVer, tags/releases, patch/hotfix policy, canonical promotion, repository health, automation boundaries and public-repository safeguards.
+- Decisions Ledger D-019 — GitHub governance and release lifecycle.
 
 ## Open planning decisions
-- Final GitHub governance/lifecycle semantics in `docs/24-github-governance-lifecycle.md`.
 - Project Manifest exact schema/version.
-- Work Order / completion / evidence schemas beyond baseline.
+- Machine-readable Work Order, Completion Manifest, Evidence Bundle and Review Receipt contracts.
 - Exact UADS/Hades V1 integration contract and current compatible version.
 - Data/persistence/vector-store benchmark decision.
 - Initial model-provider/profile matrix and routing thresholds.
@@ -60,10 +56,10 @@ Review/freeze the proposed professional GitHub governance model: project bootstr
 - Numeric Planning Confidence/question-priority thresholds after evals.
 
 ## Blockers
-None for continued planning.
+None for continued planning after HP-PLAN-002 audit.
 
 ## Implementation authorization
 NOT GRANTED. No production code should be started until the planning freeze audit authorizes the first Work Order.
 
-## Next necessary discussion
-Review and freeze `docs/24-github-governance-lifecycle.md`, then finalize the Project Manifest and machine-readable Work Order / completion / evidence contracts.
+## Proposed next planning increment
+Define and freeze versioned machine-readable artifact contracts: Project Manifest, Work Order, Completion Manifest, Evidence Bundle, Review Receipt, Context Lock and Correction Delta, including schema validation, fingerprints, provenance and compatibility rules.
