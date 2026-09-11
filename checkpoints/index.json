@@ -3,7 +3,7 @@
   "schema_version":"1.0.0",
   "project_id":"hive-plan",
   "repository":"KayzenRoot/hive-plan",
-  "active_workstream_id":"planning/hp-plan-010",
+  "active_workstream_id":"implementation/hp-wo-0001",
   "workstreams":[
     {
       "workstream_id":"planning/hp-plan-010",
