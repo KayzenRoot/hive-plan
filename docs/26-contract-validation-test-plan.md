@@ -1,6 +1,6 @@
 # Artifact Contract Validation & Compatibility Test Plan
 
-Status: PROPOSED — HP-PLAN-003
+Status: FROZEN — HP-PLAN-003
 
 ## Goal
 Prove that Hive Plan's machine-readable contracts are deterministic, compatible and resistant to stale/malformed evidence before production implementation.
@@ -25,7 +25,8 @@ Tests must reject:
 - Completion Manifest head SHA inconsistent with Git;
 - Evidence Bundle head SHA inconsistent with manifest/PR;
 - Review Receipt bound to another evidence/context root;
-- Correction Delta referencing another increment.
+- Correction Delta referencing another increment;
+- Checkpoint Delta targeting a stale/incorrect prior checkpoint or unreviewed head.
 
 ### Stale-context tests
 Given a valid Context Lock, mutate one critical source fingerprint and prove:
@@ -82,12 +83,12 @@ Production implementation SHOULD use property-based/fuzz tests for:
 
 ## Golden workflow fixture
 Before V1 release, keep at least one complete golden chain:
-`Project Manifest → Context Lock → Work Order → Completion Manifest → Evidence Bundle → Review Receipt → Correction Delta (optional)`.
+`Project Manifest → Context Lock → Work Order → Completion Manifest → Evidence Bundle → Review Receipt → Correction Delta (optional) → Checkpoint Delta`.
 
-The fixture must demonstrate both APPROVED and CORRECTION_REQUIRED paths and prove that a changed head SHA invalidates the previous receipt.
+The fixture must demonstrate APPROVED, CORRECTION_REQUIRED and BLOCKED paths, and prove that changed head SHA, context root or evidence root invalidates a previous review receipt.
 
 ## Performance principle
 Local deterministic validation must be materially cheaper and faster than an LLM call. Failure to validate locally is an architecture defect unless the decision genuinely requires semantic reasoning.
 
-## Freeze condition
-The contracts are ready to freeze only when field semantics, digest rules, compatibility behavior and cross-artifact identity are unambiguous enough to produce stable golden fixtures without implementation-specific interpretation.
+## Frozen test rule
+Every contract must ship with valid/invalid fixtures, compatibility tests, stale-context tests, security tests and deterministic digest vectors before production release.
