@@ -1,6 +1,6 @@
 # Research & Open-Source Intelligence Protocol
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-007
+Status: FROZEN — HP-PLAN-007
 
 ## Mission
 Allow Hive Plan agents to research current technologies, standards, libraries, repositories and engineering practices while preserving evidence quality, licensing/security discipline and resistance to prompt injection.
