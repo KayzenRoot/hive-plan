@@ -1,0 +1,18 @@
+{
+  "artifact_type":"blueprint_deviation",
+  "schema_version":"1.0.0",
+  "artifact_id":"HP-BD-BAD-002",
+  "artifact_digest":"sha256:6666666666666666666666666666666666666666666666666666666666666666",
+  "project_id":"hive-plan",
+  "increment_id":"HP-WO-EXAMPLE-001",
+  "blueprint_ref":{"artifact_id":"HP-BP-EXAMPLE-001","artifact_type":"implementation_blueprint","artifact_digest":"sha256:1111111111111111111111111111111111111111111111111111111111111111"},
+  "work_order_ref":{"artifact_id":"HP-WO-EXAMPLE-001","artifact_type":"work_order","artifact_digest":"sha256:2222222222222222222222222222222222222222222222222222222222222222"},
+  "expected_state":"No scope expansion.",
+  "actual_state":"Executor needs a new public contract and extra module.",
+  "reason":"Repository reality requires material scope expansion.",
+  "evidence":["Locked repository state demonstrates required public contract is absent."],
+  "impact":{"scope":"SCOPE_EXPANSION","contracts":"AFFECTED","tests":"INVALIDATED","context_lock":"STALE"},
+  "resolution":"SAFE_LOCAL_CORRECTION",
+  "created_at":"2026-09-11T19:16:00Z",
+  "producer":{"kind":"executor","name":"bounded-executor"}
+}
