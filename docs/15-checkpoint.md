@@ -1,9 +1,9 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0001  
+Checkpoint ID: HP-CP-0002  
 Status: PLANNING ACTIVE  
-Canonical branch target: `main`  
-Active planning branch: `docs/v1-planning-foundation`
+Canonical branch: `main`  
+Canonical foundation merge SHA: `b67f17083cfd5e071a9b86c4655739253df4f718`
 
 ## Frozen
 - Product identity and V1 mission.
@@ -15,15 +15,16 @@ Active planning branch: `docs/v1-planning-foundation`
 - Professional specialized agent organization.
 - Automatic completion-triggered review with independent evidence verification.
 - Dark technological command cockpit and early frontend vertical slice.
+- Canonical Source Pack foundation merged through PR #1.
 
-## Current planning increment
-Establish canonical Source Pack and repository governance before continuing detailed V1 planning.
+## Completed planning increment
+Canonical Source Pack and repository governance bootstrap established and audited.
 
 ## Open planning decisions
 - Interviewer/Planning Protocol details.
-- Agent authority matrix.
-- GitHub governance/lifecycle details.
-- Work Order / completion / evidence schemas.
+- Agent authority/escalation matrix.
+- GitHub governance/lifecycle details beyond baseline.
+- Work Order / completion / evidence schemas beyond baseline.
 - Exact UADS/Hades V1 integration contract and current compatible version.
 - Data/persistence/vector-store benchmark decision.
 - Initial model-provider/profile matrix.
