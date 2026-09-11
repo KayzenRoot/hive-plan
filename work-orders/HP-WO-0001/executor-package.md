@@ -1,6 +1,6 @@
 # HP-WO-0001 — UADS / Codex Executor Package
 
-Status: PENDING FINAL AUTHORIZATION PR AUDIT
+Status: AUTHORIZED — EFFECTIVE AFTER PR #22 MERGE + PRE-EXECUTION CONTEXT REVALIDATION
 
 ## Absolute instruction
 Execute **only** the canonical `work-orders/HP-WO-0001/work-order.json` after authorization is merged and its Context Lock is revalidated. This file is a rendering aid, not a second source of truth.
