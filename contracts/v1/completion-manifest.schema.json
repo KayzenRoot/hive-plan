@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hive-plan.local/contracts/v1/completion-manifest.schema.json",
+  "title": "Hive Plan Completion Manifest v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "artifact_id", "artifact_digest", "project_id", "increment_id", "work_order", "status", "repository", "branch", "base_sha", "head_sha", "claimed_checks", "created_at", "producer"],
+  "properties": {
+    "artifact_type": {"const": "completion_manifest"},
+    "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
+    "artifact_id": {"$ref": "common.schema.json#/$defs/artifactId"},
+    "artifact_digest": {"$ref": "common.schema.json#/$defs/digest"},
+    "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
+    "increment_id": {"$ref": "common.schema.json#/$defs/incrementId"},
+    "work_order": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "context_lock": {"$ref": "common.schema.json#/$defs/artifactRef"},
+    "status": {"type": "string", "enum": ["COMPLETED", "BLOCKED"]},
+    "repository": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "branch": {"type": "string", "minLength": 1, "maxLength": 200},
+    "base_sha": {"$ref": "common.schema.json#/$defs/gitSha"},
+    "head_sha": {"$ref": "common.schema.json#/$defs/gitSha"},
+    "pull_request_number": {"type": ["integer", "null"], "minimum": 1},
+    "claimed_checks": {"type": "array", "items": {"$ref": "common.schema.json#/$defs/checkResult"}},
+    "changed_files_claimed": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 500}, "uniqueItems": true},
+    "blocker": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["summary"],
+      "properties": {
+        "summary": {"type": "string", "minLength": 1, "maxLength": 3000},
+        "category": {"type": "string", "maxLength": 100},
+        "needs_operator": {"type": "boolean", "default": false}
+      }
+    },
+    "notes": {"type": "string", "maxLength": 5000},
+    "created_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "producer": {"$ref": "common.schema.json#/$defs/producer"},
+    "extensions": {"$ref": "common.schema.json#/$defs/extensions"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "BLOCKED"}}},
+      "then": {"required": ["blocker"]}
+    }
+  ]
+}
