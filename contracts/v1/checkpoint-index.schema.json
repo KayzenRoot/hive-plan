@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hive-plan.local/contracts/v1/checkpoint-index.schema.json",
+  "title": "Hive Plan Checkpoint Index v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type","schema_version","project_id","repository","workstreams","updated_at"],
+  "properties": {
+    "artifact_type": {"const": "checkpoint_index"},
+    "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
+    "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
+    "repository": {"type": "string", "minLength": 1, "maxLength": 300},
+    "active_workstream_id": {"type": ["string","null"], "maxLength": 160},
+    "workstreams": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["workstream_id","kind","latest_checkpoint_id","latest_checkpoint_path","status","updated_at"],
+        "properties": {
+          "workstream_id": {"type": "string", "minLength": 1, "maxLength": 160},
+          "kind": {"type": "string", "enum": ["PLANNING","IMPLEMENTATION","REVIEW","RELEASE","MAINTENANCE","RESEARCH"]},
+          "issue_id": {"type": ["integer","null"], "minimum": 1},
+          "work_order_id": {"type": ["string","null"], "maxLength": 160},
+          "branch": {"type": ["string","null"], "maxLength": 220},
+          "latest_checkpoint_id": {"type": "string", "minLength": 1, "maxLength": 160},
+          "latest_checkpoint_path": {"type": "string", "minLength": 1, "maxLength": 500},
+          "status": {"type": "string", "enum": ["ACTIVE","PAUSED","BLOCKED","COMPLETED","SUPERSEDED"]},
+          "priority": {"type": "integer", "minimum": 0, "maximum": 100},
+          "updated_at": {"$ref": "common.schema.json#/$defs/timestamp"}
+        }
+      }
+    },
+    "updated_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "extensions": {"$ref": "common.schema.json#/$defs/extensions"}
+  }
+}
