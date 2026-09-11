@@ -50,6 +50,9 @@ Implement the first end-to-end Hive Plan cockpit vertical slice on the frozen HP
 - secret scan/security headers checks.
 - screenshots/video for required visual states.
 
+## Deterministic bootstrap fixture
+The implementation may create a clearly marked `LOCAL_DEVELOPMENT_FIXTURE` project only through a documented bootstrap/test command or migration fixture path. It must be persisted in PostgreSQL, carry `fixture=true`, and must not fabricate GitHub/HIVE/UADS/UGAS health, cost, token, review or CI success. Normal runtime startup must not silently seed it outside development/test profile.
+
 ## Explicit out of scope
 - full engineering-chat LLM execution;
 - full HIVE integration/RAG ingestion;
@@ -66,21 +69,31 @@ Implement the first end-to-end Hive Plan cockpit vertical slice on the frozen HP
 - replacing frozen stack choices.
 
 ## Required acceptance criteria
-AC-01 Clean checkout can install/build/typecheck/test the bounded workspace.
-AC-02 Docker Compose starts API, web and PostgreSQL locally with localhost-first exposure.
-AC-03 Cockpit loads one real persisted project and renders no fabricated health/cost/integration data.
-AC-04 HIVE/UADS/UGAS disconnected states are explicit and visually usable.
-AC-05 Snapshot + SSE deltas preserve watermark ordering and reconcile on mismatch/gap.
-AC-06 UNKNOWN/STALE/DEGRADED are never rendered as healthy/current.
-AC-07 3D failure/disablement preserves full critical-state usability through VisualTruthMirror.
-AC-08 Reduced-motion and keyboard navigation work for required flows.
-AC-09 PostgreSQL restart preserves required canonical slice state.
-AC-10 no plaintext secrets appear in repository, projections, logs or browser fixtures.
-AC-11 performance benchmark proves the cockpit remains interactive under event-storm simulation with 3D disabled and under at least one enabled graphics profile.
-AC-12 required nine visual states have review evidence.
-AC-13 external ecosystem adapters perform no mutation and fail closed/truthfully when unavailable.
-AC-14 exact-head evidence bundle is generated before review.
+AC-01 Clean checkout can install/build/typecheck/test the bounded workspace using documented commands with zero unexplained failures.
+AC-02 Docker Compose starts API, web and PostgreSQL locally with localhost-first exposure; PostgreSQL is not published externally unless explicitly required by the dev profile.
+AC-03 Cockpit loads one persisted project from PostgreSQL. If the development fixture is used, it is visibly identified as `LOCAL_DEVELOPMENT_FIXTURE`; no health/cost/integration/review/CI data is fabricated.
+AC-04 HIVE/UADS/UGAS disconnected states are explicit, distinguishable from UNKNOWN/DEGRADED, and all affected controls explain why unavailable.
+AC-05 Snapshot + SSE deltas preserve watermark ordering, reject wrong-project/old-base deltas and force reconciliation on mismatch/gap.
+AC-06 UNKNOWN/STALE/DEGRADED are never rendered as healthy/current; timeout/missing telemetry is never converted to zero-success.
+AC-07 3D failure, browser lack of WebGPU/WebGL capability, REDUCED profile and explicit 3D disablement each preserve critical-state usability through VisualTruthMirror.
+AC-08 Keyboard-only evidence covers: project switcher focus/open/select/close; navigation rail traversal; Engineering Workspace focus; Live System Rail actionable item traversal; graphics profile selector; and return to primary workspace. Visible focus and reduced-motion behavior are required.
+AC-09 PostgreSQL process/container restart preserves project/runtime state required by the slice and cockpit recovers without reseeding or fabricated current state.
+AC-10 no plaintext secrets appear in repository, projection DTOs, browser fixtures, structured logs or evidence artifacts; projection security fixture must demonstrate redaction/exclusion.
+AC-11 Under the frozen event-storm fixture, p95 main-thread task duration attributable to cockpit projection/render processing must remain below 50 ms in 3D-disabled baseline, no single projection-induced long task may exceed 100 ms, and the UI must process operator navigation/input during the run without missed critical state transitions. At least one enabled graphics profile must complete the same semantic scenario with zero lost CRITICAL_STATE/STATE_TRANSITION events. Frame/FPS targets for enabled 3D remain benchmark evidence rather than release guarantee in this first slice.
+AC-12 the nine required visual states from docs/82 have exact-head screenshot/video evidence with state source/freshness visible where relevant.
+AC-13 HIVE/UADS/UGAS adapters in this Work Order are read-only stubs/interfaces: when unconfigured/unreachable they return explicit NOT_CONNECTED/DEGRADED/UNKNOWN according to contract, perform zero external mutation attempts, and never synthesize capability success.
+AC-14 exact-head evidence bundle is generated after final implementation changes and contains base/head SHA, changed-file inventory and required proof references.
 AC-15 Senior Review finds no unresolved HIGH/CRITICAL material defect and independent audit requirements are satisfied.
+
+## Event-storm fixture
+A deterministic test fixture MUST generate a documented bounded mixture of:
+- CRITICAL_STATE events;
+- STATE_TRANSITION events;
+- TELEMETRY_LATEST updates;
+- TELEMETRY_SAMPLE updates;
+- DECORATIVE_SIGNAL events.
+
+The fixture records produced/received/applied/coalesced/dropped counts by class. CRITICAL_STATE and STATE_TRANSITION produced count must equal applied semantic count after reconciliation, with duplicates handled idempotently rather than double-applied. Exact event rates/duration may be tuned during implementation benchmark but the fixture definition and results are versioned evidence.
 
 ## Evidence obligations
 - exact base/head SHA;
@@ -88,12 +101,13 @@ AC-15 Senior Review finds no unresolved HIGH/CRITICAL material defect and indepe
 - install/build/typecheck/test receipts;
 - migration/fresh-install/restart receipts;
 - browser screenshots/video by visual state;
-- accessibility report;
-- performance/event-storm report;
+- accessibility report including keyboard-only scenario;
+- performance/event-storm report including long-task and event preservation evidence;
 - SSE reconnect/watermark proof;
 - graphics fallback proof;
 - security headers + secret scan proof;
 - API/schema contract report;
+- ecosystem zero-mutation stub tests;
 - evidence manifest bound to exact head.
 
 ## Agent execution plan
