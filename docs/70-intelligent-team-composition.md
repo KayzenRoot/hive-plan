@@ -1,6 +1,6 @@
 # Intelligent Team Composition & AgentTaskGraph Policy
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-007
+Status: FROZEN — HP-PLAN-007
 
 ## Mission
 Choose the smallest team and execution graph that minimizes total time/cost to a verified correct outcome without sacrificing required expertise or assurance.
