@@ -19,19 +19,19 @@ Implement the first end-to-end Hive Plan cockpit vertical slice on the frozen HP
 ### Frontend
 - AppShell, command header, navigation rail, engineering workspace, live system rail and telemetry strip.
 - project cockpit route and project selector foundation.
-- design token implementation from docs/82.
+- design token implementation from `docs/82a-cockpit-design-tokens-and-component-contract.md`.
 - structured runtime states for CURRENT/STALE/DEGRADED/UNKNOWN/NOT_CONNECTED/NOT_AVAILABLE.
 - Hive Core MVP with WebGPU/WebGL2/2D fallback and VisualTruthMirror.
 - graphics profile control and reduced-motion behavior.
 
 ### Contracts/API
-- shared versioned DTO/schema package from docs/83.
+- shared versioned DTO/schema package from `docs/83-cockpit-contracts-and-api-surface.md`.
 - system/project/cockpit/health/ecosystem/activity/cost-context endpoints.
 - HTTP snapshot + SSE delta stream with watermark reconciliation.
 - no-secret projection DTOs.
 
 ### Persistence
-- minimum tables from docs/84.
+- minimum tables from `docs/84-first-slice-postgres-bootstrap.md`.
 - reproducible first migration.
 - restart persistence proof.
 - no mandatory Redis.
@@ -80,7 +80,7 @@ AC-08 Keyboard-only evidence covers: project switcher focus/open/select/close; n
 AC-09 PostgreSQL process/container restart preserves project/runtime state required by the slice and cockpit recovers without reseeding or fabricated current state.
 AC-10 no plaintext secrets appear in repository, projection DTOs, browser fixtures, structured logs or evidence artifacts; projection security fixture must demonstrate redaction/exclusion.
 AC-11 Under the frozen event-storm fixture, p95 main-thread task duration attributable to cockpit projection/render processing must remain below 50 ms in 3D-disabled baseline, no single projection-induced long task may exceed 100 ms, and the UI must process operator navigation/input during the run without missed critical state transitions. At least one enabled graphics profile must complete the same semantic scenario with zero lost CRITICAL_STATE/STATE_TRANSITION events. Frame/FPS targets for enabled 3D remain benchmark evidence rather than release guarantee in this first slice.
-AC-12 the nine required visual states from docs/82 have exact-head screenshot/video evidence with state source/freshness visible where relevant.
+AC-12 the nine required visual states from `docs/82a-cockpit-design-tokens-and-component-contract.md` have exact-head screenshot/video evidence with state source/freshness visible where relevant.
 AC-13 HIVE/UADS/UGAS adapters in this Work Order are read-only stubs/interfaces: when unconfigured/unreachable they return explicit NOT_CONNECTED/DEGRADED/UNKNOWN according to contract, perform zero external mutation attempts, and never synthesize capability success.
 AC-14 exact-head evidence bundle is generated after final implementation changes and contains base/head SHA, changed-file inventory and required proof references.
 AC-15 Senior Review finds no unresolved HIGH/CRITICAL material defect and independent audit requirements are satisfied.
