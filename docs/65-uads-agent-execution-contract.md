@@ -1,6 +1,6 @@
 # UADS/Hades Agent Execution Contract
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-007
+Status: FROZEN — HP-PLAN-007
 
 ## Mission
 Translate one canonical Hive Plan Work Order or Correction Delta into a safe executor-specific multi-agent execution plan without changing objective, scope, acceptance criteria, architecture constraints or evidence obligations.
