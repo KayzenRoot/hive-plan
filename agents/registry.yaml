@@ -1,8 +1,9 @@
-schema_version: "1.0"
+schema_version: "1.1"
 source_of_charters: docs/69-v1-agent-charters.md
 common_contract: docs/66-agent-operating-system.md
 skill_policy: docs/67-skill-fabric.md
 research_policy: docs/68-research-and-open-source-intelligence.md
+ecosystem_specialist_policy: docs/77-hive-ugas-uads-specialist-agents.md
 agents:
   - {id: A-001, slug: planning-council-lead, title: "Planning Council Lead / Engineering Director", authority: A2, quality_floor: STRONG, research: delegated, mutating: false}
   - {id: A-002, slug: interviewer-discovery-lead, title: "Interviewer / Discovery Lead", authority: A1, quality_floor: BALANCED, research: allowed, mutating: false}
@@ -34,6 +35,9 @@ agents:
   - {id: A-028, slug: independent-auditor-red-team, title: "Independent Auditor / Red-Team Reviewer", authority: A3, quality_floor: HIGH_ASSURANCE, research: allowed, mutating: audit-artifacts}
   - {id: A-029, slug: checkpoint-continuity-agent, title: "Checkpoint / Continuity Agent", authority: A2, quality_floor: BALANCED, research: none, mutating: checkpoint-deltas}
   - {id: A-030, slug: finops-llm-cost-engineer, title: "FinOps / LLM Cost Engineer", authority: A2, quality_floor: BALANCED, research: primary, mutating: policy-proposals}
+  - {id: A-031, slug: principal-hive-systems-specialist, title: "Principal HIVE Systems Specialist", authority: A2, quality_floor: STRONG, research: primary, mutating: integration-task-scoped}
+  - {id: A-032, slug: principal-ugas-production-specialist, title: "Principal UGAS Production Systems Specialist", authority: A2, quality_floor: STRONG, research: primary, mutating: integration-task-scoped}
+  - {id: A-033, slug: principal-uads-orchestration-specialist, title: "Principal UADS Orchestration Specialist", authority: A2, quality_floor: STRONG, research: primary, mutating: integration-task-scoped}
 
 rules:
   model_names_are_not_canonical: true
@@ -42,3 +46,5 @@ rules:
   external_research_is_untrusted_data: true
   skill_creation_requires_skillforge: true
   hidden_chain_of_thought_is_not_agent_bus_content: true
+  ecosystem_specialists_must_refresh_repo_fingerprints_before_high_impact_advice: true
+  cross_system_mutation_requires_explicit_contract_and_ownership: true
