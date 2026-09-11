@@ -1,11 +1,11 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0013  
+Checkpoint ID: HP-CP-0014  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
-Last canonical planning merge: `fb769014f1b4002aaa71942ef466f21760eeb935` (`HP-PLAN-004`)  
-Active planning increment: `HP-PLAN-005`  
-Active planning branch: `docs/hp-plan-005-model-router-cache`
+Last canonical planning merge: `a7de9c5fda68facdf82103ce72e9183bfd555bf4` (`HP-PLAN-005`)  
+Active planning increment: `HP-PLAN-006`  
+Active planning branch: `docs/hp-plan-006-event-auto-review`
 
 ## Frozen
 - Product identity and V1 mission.
@@ -40,17 +40,36 @@ Active planning branch: `docs/hp-plan-005-model-router-cache`
 - `HP-PLAN-002` — planning/delivery lifecycle, operational learning memory and GitHub governance; merged through PR #5.
 - `HP-PLAN-003` — machine-readable artifact contracts; objectively audited and squash-merged through PR #7.
 - `HP-PLAN-004` — Work Order Compiler & Context Optimization Engine; objectively audited and squash-merged through PR #9.
-- `HP-PLAN-005` — Model Router + Cache/Cost Engine; specification frozen and awaiting objective PR audit/merge.
+- `HP-PLAN-005` — Model Router + Cache/Cost Engine; objectively audited and squash-merged through PR #11.
 
-## HP-PLAN-005 artifacts
-- `docs/34-model-router-cache-cost-engine.md` — frozen architecture.
-- `docs/35-quality-floor-routing-policy.md` — frozen QualityFloor/routing policy.
-- `docs/36-routing-cache-evals.md` — frozen eval/regression policy.
-- `docs/37-provider-capability-live-notes.md` — living, non-canonical provider research/config input.
-- Decisions Ledger D-022 and D-023.
-- Issue #10.
+## Active planning increment
+`HP-PLAN-006` — Event Spine + Auto Review Orchestrator.
+
+### HP-PLAN-006 current artifacts
+- `docs/42-event-spine-auto-review-orchestrator.md` — proposed architecture.
+- `docs/43-event-auto-review-evals.md` — proposed correctness/fault/replay eval plan.
+- Issue #12.
+
+## Current proposed direction
+- Local V1 observes GitHub through authenticated conditional polling by default; webhook/tunnel is optional.
+- GitPulse uses ETag/304, X-Poll-Interval compliance, adaptive cadence and minimal API reads.
+- EventSpine is a durable append-only normalized event journal; events are signals, not authority.
+- Reliability target is at-least-once observation/processing + idempotent handlers + exactly-once-effect semantics where practical.
+- EffectLedger/outbox-like tracking and ReviewLease prevent duplicate external review/correction/checkpoint effects.
+- ReviewGate is an explicit persisted eligibility state machine.
+- SnapshotGuard/ReviewMVCC pins base SHA + head SHA + context root + evidence root and cancels stale in-flight reviews.
+- EvidenceForge independently assembles Evidence Bundles from GitHub/CI/tool facts.
+- Evidence Watermark prevents semantic review until every required proof channel is satisfied/authorized.
+- Quiescence Guard avoids reviewing transient rapid-push states.
+- deterministic/evidence preflight occurs before expensive model review.
+- correction cycles regenerate bounded Correction Deltas and are re-observed automatically.
+- crash/restart recovery reconciles durable state against GitHub instead of restarting workflows blindly.
 
 ## Open planning decisions
+- Final HP-PLAN-006 architecture/freeze.
+- Exact durable journal/database + wake-up queue implementation after stack/data ADR.
+- Exact active/idle polling intervals and quiescence windows after benchmarks.
+- Exact optional webhook/tunnel technology if/when enabled.
 - Initial model/provider tier assignments and numeric routing/budget thresholds after evals/current-provider refresh.
 - Exact safe-result-cache eligibility details after implementation threat/eval testing.
 - Exact repository-size/query thresholds for indexed lexical backend after benchmarks.
@@ -64,10 +83,10 @@ Active planning branch: `docs/hp-plan-005-model-router-cache`
 - Byte-level contract digest golden vectors and validator runtime selection at implementation time.
 
 ## Blockers
-None for continued planning after HP-PLAN-005 audit.
+None for continued planning.
 
 ## Implementation authorization
 NOT GRANTED. Production code remains blocked until the planning freeze audit authorizes the first implementation Work Order.
 
-## Proposed next planning increment
-Define and freeze the Event Spine + Auto Review Orchestrator: local GitHub observation strategy, completion-manifest/CI event correlation, event journal, idempotency/debounce, PR-head drift cancellation, review eligibility state machine, automatic Evidence Bundle assembly, review/audit triggering, correction prompt generation and operator notification. Webhook/tunnel support remains optional; local V1 must work without exposing the machine publicly.
+## Next necessary discussion
+Review and refine the Event Spine/Auto Review design, especially polling vs optional webhooks, ReviewMVCC/stale-head cancellation, Evidence Watermark, durable idempotency/effect semantics and operator-notification behavior before freezing HP-PLAN-006.
