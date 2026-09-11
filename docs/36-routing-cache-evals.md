@@ -1,6 +1,6 @@
 # Routing, Cache & Cost Evals
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-005
+Status: FROZEN — HP-PLAN-005
 
 ## Purpose
 Prove that routing and cache optimizations reduce total verified-delivery cost/latency without degrading planning, implementation or review quality.
@@ -139,4 +139,4 @@ After each verified increment, record route/economic outcomes using stable task/
 Contextual-bandit or learned routing may be evaluated after sufficient verified outcomes exist. It remains SHADOW/TRIAL until it beats the deterministic QualityFloor baseline and respects every safety/quality constraint.
 
 ## Freeze rule
-Freeze the eval dimensions, stale-cache/provider-failure test requirements and quality-regression gates. Numeric thresholds are calibrated from benchmark/eval data rather than guessed during planning.
+Frozen: eval dimensions, stale-cache/provider-failure test requirements and quality-regression gates. Numeric thresholds are calibrated from benchmark/eval data rather than guessed during planning.
