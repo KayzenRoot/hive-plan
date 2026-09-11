@@ -82,6 +82,10 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 **Decision:** Core Hive Plan workflow artifacts use versioned canonical JSON contracts validated with JSON Schema Draft 2020-12 before LLM reasoning. Canonical identities use JCS-compatible canonicalization plus SHA-256; governed reviews bind to exact Git head, context root and evidence root. Completion manifests are triggers/claims only, while Evidence Bundles provide verified facts and Checkpoint Deltas govern canonical promotion. Unsupported major contract versions are blocked rather than guessed, and executor/provider-specific data is isolated in namespaced extensions.  
 **Status:** FROZEN.
 
+## D-021 — Work Order Compiler architecture
+**Decision:** Work Order generation is a deterministic-first, multi-pass compiler rather than prose generation. The frozen architecture includes canonical source resolution, incremental content-addressed repository indexing, exact/lexical/AST/symbol/dependency/semantic retrieval, ChangeGraph impact prediction, FailureShield negative-knowledge preflight, TestLens proof planning, risk-adaptive ContextCapsules, WO-IR, ExecutorFit rendering and CompileGuard. Specific third-party search/parser/embedding/reranking backends remain replaceable behind provider interfaces and are promoted only by benchmark/eval evidence. Compiler quality is governed by downstream verified outcomes such as first-pass success, correction rounds, context cost, defects and total idea-to-verified-merge time.  
+**Status:** FROZEN.
+
 ## Open decisions
 - Exact framework/runtime stack.
 - Exact vector store/database strategy after benchmark.
@@ -91,3 +95,4 @@ Only approved decisions are recorded as canonical. Superseding a frozen decision
 - Exact design tokens/brand accent system.
 - Exact numeric thresholds/weights used by Planning Confidence and question-priority scoring after evals.
 - Byte-level digest golden vectors and validator runtime selection at implementation time.
+- Exact Work Order compiler backend thresholds, retrieval fusion/reranker and local embedding profiles after benchmark.
