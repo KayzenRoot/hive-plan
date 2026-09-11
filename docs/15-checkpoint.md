@@ -1,6 +1,6 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0005  
+Checkpoint ID: HP-CP-0006  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
 Active planning increment: `HP-PLAN-002`  
@@ -28,6 +28,9 @@ Active planning branch: `docs/hp-plan-002-governance-memory`
 - Innovation governance/classification without silent scope expansion.
 - Operational learning memory: canonical + execution + experience + failure/negative knowledge, with provenance and authority metadata.
 - Prior-failure retrieval before Work Order finalization when relevant.
+- Stable increment identity across issue/branch/Work Order/PR/evidence/review/checkpoint/memory.
+- Layered deterministic-first review and correction-in-place policy.
+- Verified-throughput speed objective: optimize total idea-to-verified-merge time and rework reduction.
 
 ## Completed planning increment
 `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
@@ -37,17 +40,17 @@ Active planning branch: `docs/hp-plan-002-governance-memory`
 
 ### HP-PLAN-002 current artifacts
 - `docs/22-operational-memory-rag.md` — frozen direction.
-- `docs/23-planning-delivery-flow.md` — proposed for discussion/freeze.
+- `docs/23-planning-delivery-flow.md` — frozen.
+- `docs/24-github-governance-lifecycle.md` — proposed for freeze.
 - Decisions Ledger D-017 — operational learning memory.
+- Decisions Ledger D-018 — verified-throughput delivery flow.
 
 ## Current focus
-Define the fastest safe planning/delivery rhythm: issues, stable increment IDs, branches, Context Lock, Work Orders, Codex execution, PR/evidence boundary, automated review/audit, Correction Deltas, merge gates, checkpoint reconciliation, and post-merge learning.
+Review/freeze the proposed professional GitHub governance model: project bootstrap, manifest/lifecycle states, issue taxonomy, milestones, planning PRs, freeze/unfreeze semantics, SemVer, tags/releases, patch/hotfix policy, canonical promotion, repository health, automation boundaries and public-repository safeguards.
 
 ## Open planning decisions
-- Exact planning/delivery lifecycle semantics under HP-PLAN-002.
-- Project bootstrap manifest and lifecycle schema details.
-- GitHub issue/branch/PR taxonomy and naming conventions.
-- Freeze/unfreeze, SemVer, tags/releases/patch policy.
+- Final GitHub governance/lifecycle semantics in `docs/24-github-governance-lifecycle.md`.
+- Project Manifest exact schema/version.
 - Work Order / completion / evidence schemas beyond baseline.
 - Exact UADS/Hades V1 integration contract and current compatible version.
 - Data/persistence/vector-store benchmark decision.
@@ -63,4 +66,4 @@ None for continued planning.
 NOT GRANTED. No production code should be started until the planning freeze audit authorizes the first Work Order.
 
 ## Next necessary discussion
-Review and freeze the proposed issue/branch/Work Order/PR lifecycle optimized for verified throughput, then define GitHub versioning/freeze/release semantics.
+Review and freeze `docs/24-github-governance-lifecycle.md`, then finalize the Project Manifest and machine-readable Work Order / completion / evidence contracts.
