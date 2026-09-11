@@ -1,10 +1,11 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0007  
+Checkpoint ID: HP-CP-0009  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
-Active planning increment: `HP-PLAN-002`  
-Active planning branch: `docs/hp-plan-002-governance-memory`
+Last canonical planning merge: `b5be6c0faf188b718fe2e8223f5afc34896143f0` (`HP-PLAN-002`)  
+Active planning increment: `HP-PLAN-003`  
+Active planning branch: `docs/hp-plan-003-artifact-contracts`
 
 ## Frozen
 - Product identity and V1 mission.
@@ -16,50 +17,44 @@ Active planning branch: `docs/hp-plan-002-governance-memory`
 - Professional specialized agent organization.
 - Automatic completion-triggered review with independent evidence verification.
 - Dark technological command cockpit and early frontend vertical slice.
-- Canonical Source Pack foundation merged through PR #1.
-- Context-first adaptive interviewing with no-repeat behavior.
-- Short high-value question rounds prioritized by impact/uncertainty/irreversibility/risk/dependency reach.
-- Specialist escalation by domain/risk.
-- Explicit Assumption Register.
-- Evidence-backed Planning Confidence Map.
-- Decision Pressure Test and independent critique for consequential decisions.
-- Explicit discovery Stop Condition.
-- Governed agent authority levels and operator interruption points.
-- Innovation governance/classification without silent scope expansion.
-- Operational learning memory: canonical + execution + experience + failure/negative knowledge, with provenance and authority metadata.
-- Prior-failure retrieval before Work Order finalization when relevant.
-- Stable increment identity across issue/branch/Work Order/PR/evidence/review/checkpoint/memory.
-- Layered deterministic-first review and correction-in-place policy.
-- Verified-throughput speed objective: optimize total idea-to-verified-merge time and rework reduction.
-- Professional GitHub lifecycle: short-lived branches, governed PRs, issue/milestone semantics, freeze/unfreeze rules, SemVer, immutable release tags, evidence-based patches, SHA promotion, repository health and publication safeguards.
+- Context-first interviewing, specialist escalation, Assumption Register, Planning Confidence Map and Decision Pressure Test.
+- Agent authority levels, discovery Stop Condition and governed innovation lane.
+- Operational learning memory with successful patterns plus failure/negative knowledge and provenance.
+- Stable increment identity, short-lived GitHub branches, governed PRs, SemVer/release lifecycle and SHA-based canonical promotion.
+- Verified-throughput objective, deterministic-first review and correction-in-place.
+- Versioned machine-readable artifact contracts using canonical JSON + JSON Schema 2020-12.
+- JCS-compatible canonicalization + SHA-256 artifact/context/evidence fingerprints.
+- Review Receipt bound to exact head SHA + context root + evidence root.
+- Completion Manifest as claim/trigger only; independently assembled Evidence Bundle as proof surface.
+- Structured Correction Delta and Checkpoint Delta contracts.
+- Unsupported major schema versions BLOCK rather than being guessed.
 
 ## Completed planning increments
 - `HP-PLAN-001` — Interviewer + Planning Protocol and agent authority/escalation model.
-- `HP-PLAN-002` — planning lifecycle, operational learning memory and GitHub governance. Specification complete; awaiting PR audit/merge.
+- `HP-PLAN-002` — planning/delivery lifecycle, operational learning memory and GitHub governance; audited and squash-merged through PR #5.
+- `HP-PLAN-003` — machine-readable artifact contracts; specification frozen and awaiting PR audit/merge.
 
-### HP-PLAN-002 artifacts
-- `docs/22-operational-memory-rag.md` — frozen.
-- `docs/23-planning-delivery-flow.md` — frozen.
-- `docs/24-github-governance-lifecycle.md` — frozen.
-- Decisions Ledger D-017 — operational learning memory.
-- Decisions Ledger D-018 — verified-throughput delivery flow.
-- Decisions Ledger D-019 — GitHub governance and release lifecycle.
+## HP-PLAN-003 artifacts
+- `docs/25-artifact-contracts.md` — frozen.
+- `docs/26-contract-validation-test-plan.md` — frozen.
+- `contracts/v1/*.schema.json` — Project Manifest, Context Lock, Work Order, Completion Manifest, Evidence Bundle, Review Receipt, Correction Delta and Checkpoint Delta.
+- Decisions Ledger D-020.
 
 ## Open planning decisions
-- Project Manifest exact schema/version.
-- Machine-readable Work Order, Completion Manifest, Evidence Bundle and Review Receipt contracts.
-- Exact UADS/Hades V1 integration contract and current compatible version.
+- Work Order Compiler/context optimization architecture.
+- Exact UADS/Hades V1 integration contract and compatible version.
 - Data/persistence/vector-store benchmark decision.
 - Initial model-provider/profile matrix and routing thresholds.
 - Technology stack ADR.
 - Detailed cockpit design system and interaction model.
 - Numeric Planning Confidence/question-priority thresholds after evals.
+- Byte-level digest golden vectors and validator runtime selection at implementation time.
 
 ## Blockers
-None for continued planning after HP-PLAN-002 audit.
+None for continued planning after HP-PLAN-003 audit.
 
 ## Implementation authorization
-NOT GRANTED. No production code should be started until the planning freeze audit authorizes the first Work Order.
+NOT GRANTED. Production code remains blocked until the planning freeze audit authorizes the first implementation Work Order.
 
 ## Proposed next planning increment
-Define and freeze versioned machine-readable artifact contracts: Project Manifest, Work Order, Completion Manifest, Evidence Bundle, Review Receipt, Context Lock and Correction Delta, including schema validation, fingerprints, provenance and compatibility rules.
+Define and freeze the Work Order Compiler and Context Optimization Engine: repository indexing, text/AST/symbol/dependency retrieval, RAG fusion, negative-knowledge preflight, change-surface prediction, test-impact mapping, context budgeting, provider prompt-cache layout, executor capability profiles and compile-time quality gates.

@@ -1,0 +1,51 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://hive-plan.local/contracts/v1/checkpoint-delta.schema.json",
+  "title": "Hive Plan Checkpoint Delta v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["artifact_type", "schema_version", "artifact_id", "artifact_digest", "project_id", "increment_id", "from_checkpoint_id", "changes", "lifecycle_transition", "created_at", "producer"],
+  "properties": {
+    "artifact_type": {"const": "checkpoint_delta"},
+    "schema_version": {"$ref": "common.schema.json#/$defs/schemaVersion"},
+    "artifact_id": {"$ref": "common.schema.json#/$defs/artifactId"},
+    "artifact_digest": {"$ref": "common.schema.json#/$defs/digest"},
+    "project_id": {"$ref": "common.schema.json#/$defs/projectId"},
+    "increment_id": {"$ref": "common.schema.json#/$defs/incrementId"},
+    "from_checkpoint_id": {"type": "string", "minLength": 1, "maxLength": 120},
+    "proposed_checkpoint_id": {"type": ["string", "null"], "maxLength": 120},
+    "review_receipt": {"anyOf": [{"$ref": "common.schema.json#/$defs/artifactRef"}, {"type": "null"}]},
+    "changes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source_id", "operation", "reason"],
+        "properties": {
+          "source_id": {"type": "string", "minLength": 1, "maxLength": 300},
+          "operation": {"type": "string", "enum": ["CREATE", "UPDATE", "SUPERSEDE", "STATUS_CHANGE", "REFERENCE_ONLY"]},
+          "reason": {"type": "string", "minLength": 1, "maxLength": 3000},
+          "previous_fingerprint": {"anyOf": [{"$ref": "common.schema.json#/$defs/digest"}, {"type": "null"}]},
+          "proposed_fingerprint": {"anyOf": [{"$ref": "common.schema.json#/$defs/digest"}, {"type": "null"}]},
+          "decision_refs": {"type": "array", "items": {"type": "string", "minLength": 1, "maxLength": 200}, "uniqueItems": true}
+        }
+      }
+    },
+    "lifecycle_transition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["from", "to"],
+      "properties": {
+        "from": {"type": "string", "enum": ["IDEA", "DISCOVERY", "PLANNING", "PLANNING_FROZEN", "IMPLEMENTATION", "VALIDATION", "RELEASE_CANDIDATE", "RELEASED", "MAINTENANCE"]},
+        "to": {"type": "string", "enum": ["IDEA", "DISCOVERY", "PLANNING", "PLANNING_FROZEN", "IMPLEMENTATION", "VALIDATION", "RELEASE_CANDIDATE", "RELEASED", "MAINTENANCE"]},
+        "reason": {"type": "string", "maxLength": 2000}
+      }
+    },
+    "implementation_authorization": {"type": ["boolean", "null"]},
+    "notes": {"type": "string", "maxLength": 5000},
+    "created_at": {"$ref": "common.schema.json#/$defs/timestamp"},
+    "producer": {"$ref": "common.schema.json#/$defs/producer"},
+    "extensions": {"$ref": "common.schema.json#/$defs/extensions"}
+  }
+}
