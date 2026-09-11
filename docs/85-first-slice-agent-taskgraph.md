@@ -18,8 +18,9 @@ WRITE_SET:
 - Docker/Compose bootstrap
 - environment templates without secrets
 READ_SET:
-- ADR-029/030
-- first-slice docs
+- `adr/ADR-029-v1-application-runtime-and-cockpit-stack.md`
+- `adr/ADR-030-v1-data-persistence-and-recovery-architecture.md`
+- `docs/82-first-slice-implementation-readiness.md`
 WATCH_SET:
 - API/web package manifests
 Proof:
@@ -34,7 +35,8 @@ WRITE_SET:
 - shared schema/DTO package
 - validation fixtures
 READ_SET:
-- docs/81, docs/83
+- `docs/81-cockpit-realtime-projection-contract.md`
+- `docs/83-cockpit-contracts-and-api-surface.md`
 WATCH_SET:
 - API routes, frontend projection consumers
 Proof:
@@ -51,8 +53,8 @@ WRITE_SET:
 - DB bootstrap/config package
 - schema tests
 READ_SET:
-- ADR-030
-- docs/84
+- `adr/ADR-030-v1-data-persistence-and-recovery-architecture.md`
+- `docs/84-first-slice-postgres-bootstrap.md`
 WATCH_SET:
 - API persistence adapters
 Proof:
@@ -86,7 +88,8 @@ WRITE_SET:
 - design token implementation
 - component states
 READ_SET:
-- docs/82/83
+- `docs/82a-cockpit-design-tokens-and-component-contract.md`
+- `docs/83-cockpit-contracts-and-api-surface.md`
 - shared contracts
 WATCH_SET:
 - API projection shapes
@@ -105,6 +108,7 @@ WRITE_SET:
 - graphics governor/fallback code
 READ_SET:
 - cockpit projection selectors
+- `docs/82a-cockpit-design-tokens-and-component-contract.md`
 WATCH_SET:
 - semantic status tokens
 Proof:
@@ -119,7 +123,8 @@ Specialist review: A-031 HIVE, A-032 UGAS, A-033 UADS
 WRITE_SET:
 - Hive Plan-side adapter interfaces/stubs only
 READ_SET:
-- live ecosystem specialist policy/ADRs
+- `docs/77-hive-ugas-uads-specialist-agents.md`
+- `adr/ADR-028-hive-ugas-uads-principal-specialists.md`
 WATCH_SET:
 - external repositories are read-only evidence sources
 Proof:
@@ -134,7 +139,7 @@ Support: A-020 Performance, A-017 Security, A-021 Observability
 WRITE_SET:
 - tests/evals/bench harness/evidence scripts
 READ_SET:
-- all acceptance criteria
+- `docs/86-first-cockpit-work-order-candidate.md`
 WATCH_SET:
 - implementation outputs
 Proof:
