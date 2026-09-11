@@ -1,6 +1,6 @@
 # Agent Authority and Escalation Matrix
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-001
+Status: FROZEN — HP-PLAN-001
 
 ## Core rule
 Agents may analyze and propose within their domain, but no agent may silently promote a material decision into canonical truth. Canonical changes pass governed approval and checkpoint reconciliation.
