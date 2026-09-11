@@ -1,6 +1,6 @@
 # GitHub Governance & Lifecycle
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-002
+Status: FROZEN — HP-PLAN-002
 
 ## Objective
 Use GitHub as the canonical, auditable operating backbone for planning, implementation, review, release, recovery, and organizational memory while minimizing manual operator work.
