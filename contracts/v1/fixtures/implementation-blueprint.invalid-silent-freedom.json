@@ -1,0 +1,20 @@
+{
+  "artifact_type": "implementation_blueprint",
+  "schema_version": "2.0.0",
+  "artifact_id": "HP-BP-BAD-001",
+  "project_id": "hive-plan",
+  "increment_id": "HP-WO-BAD-001",
+  "guidance_level": "UNBOUNDED",
+  "objective": "Let executor redesign anything it wants.",
+  "scope": [],
+  "change_surface": {},
+  "file_plan": [],
+  "symbol_plan": [],
+  "contracts": [],
+  "test_plan": [],
+  "evidence_plan": [],
+  "decision_budget": [],
+  "stop_condition": "Stop whenever convenient.",
+  "created_at": "yesterday",
+  "producer": {"kind":"executor","name":"untrusted"}
+}
