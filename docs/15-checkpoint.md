@@ -1,11 +1,11 @@
 # Checkpoint
 
-Checkpoint ID: HP-CP-0017  
+Checkpoint ID: HP-CP-0018  
 Status: PLANNING ACTIVE  
 Canonical branch target: `main`  
-Last canonical planning merge: `a1830a317c1fd5bef77409b5bc00426ec85d6c75` (`HP-PLAN-006`)  
-Active planning increment: `HP-PLAN-007`  
-Active planning branch: `docs/hp-plan-007-uads-agent-contract`
+Last canonical planning merge: `b13834fe01ed8b25f1277c114e3b3a7684877e52` (HP-PLAN-007 status reconciliation after PR #15/#17)  
+Active planning increment: `HP-PLAN-008`  
+Active planning branch: `docs/hp-plan-008-stack-data-architecture`
 
 ## Frozen foundation
 - Product identity/V1 mission, local-first single-user Docker deployment and GitHub canonical truth.
@@ -19,34 +19,12 @@ Active planning branch: `docs/hp-plan-007-uads-agent-contract`
 - QualityFloor T0–T4, Verified Outcome Cost/Rework Tax, provider-neutral ModelMesh/CacheFabric and no silent HIGH_ASSURANCE downgrade.
 - EventSpine/GitPulse, ReviewMVCC/SnapshotGuard, EvidenceForge/Watermark, ReviewLease/EffectLedger and stale-review cancellation.
 - Focused Senior Review: actual diff + semantic impact closure, conditional UADS specialists, FindingGate, SARIF-normalized analyzers and delta-first corrections.
-
-## Newly frozen in HP-PLAN-007
-- **30 canonical V1 agent roles** authored in Hive Plan, A-001 through A-030; Codex/UADS must implement/load these definitions rather than inventing hidden roles.
+- 30 canonical V1 agent roles A-001..A-030 authored in Hive Plan.
 - Agent Operating System with TeamComposer, Capability Ledger, ExpertiseGraph, CouncilBus, Dissent Ledger and AgentGovernor.
-- Seniority by contract/evidence/evals, not persona wording.
-- Minimal-sufficient-team policy: one agent by default unless distinct expertise, independent assurance or safe parallelism creates verified value.
-- AgentTaskGraph with explicit dependencies, WRITE_SET/READ_SET/WATCH_SET, ContextCapsules, skills/tools, proof obligations, budgets and STOP CONDITION.
-- Dynamic ConcurrencyGovernor and conflict-safe serialization when mutable ownership safety cannot be proven.
-- SkillCatalog/SkillForge/SkillResolver/SkillFitness: agents may discover, reuse, compose, request and create candidate skills, but skills require validation/promotion and cannot self-grant permissions/authority.
-- ResearchRadar + Research/OSS Intelligence protocol: web/GitHub research is first-class but external content is untrusted evidence, not instruction authority.
-- OSS/technology due diligence covers license, maintenance, security, lock-in, benchmark evidence and ADOPT/TRIAL/WATCH/REJECT classification.
-- Structured inter-agent collaboration and explicit Dissent Ledger; majority vote cannot replace technical evidence.
-- Portable/open-standard direction: Agent Skills-style packages, MCP-compatible tool adapters and A2A-compatible discovery/delegation concepts may be used behind adapters without becoming mandatory V1 domain dependencies.
-- Stable agent prompt envelope + bounded dynamic ContextCapsules for caching/token efficiency.
-
-## Canonical/proposed HP-PLAN-007 artifacts
-- `docs/65-uads-agent-execution-contract.md`
-- `docs/66-agent-operating-system.md`
-- `docs/67-skill-fabric.md`
-- `docs/68-research-and-open-source-intelligence.md`
-- `docs/69-v1-agent-charters.md`
-- `docs/70-intelligent-team-composition.md`
-- `docs/71-hp-plan-007-agent-system-freeze.md`
-- `agents/registry.yaml`
-- `agents/README.md`
-- `skills/README.md`
-- `skills/_template/SKILL.md`
-- Issue #14.
+- AgentTaskGraph with WRITE_SET/READ_SET/WATCH_SET, ContextCapsules, safe parallelism and ConcurrencyGovernor.
+- SkillCatalog/SkillForge/SkillResolver/SkillFitness plus governed candidate-skill creation and reuse.
+- ResearchRadar/Research & OSS Intelligence with external content treated as untrusted evidence.
+- Open interoperability direction using Agent Skills-style packages and MCP/A2A-compatible adapters without lock-in.
 
 ## Completed planning increments
 - HP-PLAN-001 — Interviewer + Planning Protocol.
@@ -55,25 +33,63 @@ Active planning branch: `docs/hp-plan-007-uads-agent-contract`
 - HP-PLAN-004 — Work Order Compiler & Context Optimization Engine.
 - HP-PLAN-005 — Model Router + Cache/Cost Engine.
 - HP-PLAN-006 — Event Spine + Auto Review + Focused Senior Review.
+- HP-PLAN-007 — Governed Agent OS, 30 senior/principal agents, skills/research fabric and UADS AgentTaskGraph; audited/merged through PR #15, status headers reconciled through PR #17.
 
-## Open decisions
-- Exact UADS/Hades V1 invocation/version/capability handshake and adapter transport.
-- Exact worktree/workspace isolation supported by UADS/Hades.
-- Exact Team Utility scoring weights/concurrency ceilings after evals.
-- Exact durable database/journal/wake-up queue implementation after stack/data ADR.
-- Exact polling/quiescence thresholds and review analyzer portfolio after benchmarks.
-- Initial model/provider mappings and numeric routing budgets after current-provider evals.
-- Exact Work Order retrieval fusion/local embedding/reranker choices after benchmarks.
-- Data/persistence/vector-store decision.
-- Technology stack ADR.
-- Detailed cockpit design system and interaction model.
-- Numeric Planning Confidence thresholds and artifact digest golden vectors.
+## Active HP-PLAN-008
+Objective: freeze the implementation technology stack and data/persistence architecture with unusually strong emphasis on a beautiful high-performance realtime cockpit and maintainable local-first backend.
+
+### Current proposed direction
+- React 19.3+ + TypeScript strict.
+- Vite 8.1+/Rolldown client build system.
+- TanStack Router + TanStack Query.
+- Base UI candidate + Tailwind CSS 4.3 custom design layer.
+- Motion for React for motion/view/layout transitions.
+- Three.js WebGPURenderer + React Three Fiber for optional data-driven 3D, WebGL2 fallback and adaptive graphics profiles.
+- Node.js 24 LTS + TypeScript + Fastify backend.
+- HTTP/REST commands + SSE default realtime/LLM stream; WebSocket only where benchmarked need exists.
+- PostgreSQL 18 canonical datastore.
+- pgvector 0.8.6+ default vector/RAG candidate.
+- durable PostgreSQL event/outbox state with pg-boss as strong TRIAL candidate.
+- Redis optional/non-canonical in standalone V1.
+- content-addressed local artifact store for large immutable evidence/log assets.
+- OpenTelemetry-compatible instrumentation.
+- pnpm workspace modular monolith + workers, Docker Compose, no premature Kubernetes/microservices.
+
+### HP-PLAN-008 proposed artifacts
+- `docs/73-technology-stack-proposal.md`
+- `docs/74-cockpit-frontend-visual-system.md`
+- `docs/75-data-persistence-architecture.md`
+- `docs/76-stack-benchmark-and-adoption-plan.md`
+- Issue #16.
+
+## Frontend visual direction under review
+Working language: **Obsidian Glass / Electric Signal**.
+- dark graphite/obsidian cockpit;
+- restrained glassmorphism;
+- cyan/blue/violet signal spectrum;
+- data-driven energy flow;
+- optional central 3D Hive Core;
+- real-time project/agent/review/cost/CI telemetry;
+- cinematic, balanced, efficient and reduced-motion graphics tiers;
+- 3D is progressive enhancement and never the sole representation of critical state;
+- frontend vertical slice remains an early implementation priority.
+
+## Open HP-PLAN-008 decisions
+- Base UI vs Radix final primitive choice after slice benchmark.
+- ECharts vs uPlot split by chart workload.
+- pg-boss vs explicit lightweight Postgres worker/outbox implementation.
+- exact TypeScript SQL/query/migration layer.
+- exact Redis activation threshold.
+- exact dedicated-vector-DB threshold.
+- exact 3D graphics budgets/LOD/DPR thresholds after RTX 5050/browser benchmark.
+- exact SecretVault Windows/Docker provider.
+- exact local telemetry persistence/retention details.
 
 ## Blockers
-None for HP-PLAN-007 objective audit/merge or continued planning.
+None for continued HP-PLAN-008 planning/research.
 
 ## Implementation authorization
 NOT GRANTED. Production code remains blocked until planning freeze audit authorizes the first implementation Work Order.
 
-## Proposed next increment after HP-PLAN-007
-Design the **Technology Stack + Data/Persistence Architecture ADR** and benchmark plan, including application runtime/frameworks, relational/event/cache/vector/search storage, local hardware constraints, migrations/backups, security, observability and replaceable adapters. This will resolve several deferred implementation choices before frontend/backend coding begins.
+## Next necessary discussion
+Pressure-test the proposed frontend/backend/data stack, then freeze the visual/runtime architecture and continue into security/observability/recovery constraints before compiling the first implementation vertical slice.
