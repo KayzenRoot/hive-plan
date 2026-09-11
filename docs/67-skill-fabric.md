@@ -1,6 +1,6 @@
 # Skill Fabric / SkillForge
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-007
+Status: FROZEN — HP-PLAN-007
 
 ## Mission
 Give Hive Plan agents reusable procedural capabilities without bloating every agent prompt or recreating expertise repeatedly.
