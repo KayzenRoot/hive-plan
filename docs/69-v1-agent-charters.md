@@ -1,6 +1,6 @@
 # V1 Senior Agent Charters
 
-Status: PROPOSED FOR FREEZE — HP-PLAN-007
+Status: FROZEN — HP-PLAN-007
 
 All agents inherit `docs/66-agent-operating-system.md`, `docs/67-skill-fabric.md`, the authority matrix, Source Hierarchy, QualityFloor and project security rules. They exchange structured conclusions/evidence through CouncilBus, not hidden reasoning. Tool/model assignments are capability/risk driven and replaceable.
 
